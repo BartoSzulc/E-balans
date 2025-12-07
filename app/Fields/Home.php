@@ -226,31 +226,7 @@ class Home extends Field
             ->addGroup('how_it_works', [
                 'label' => 'How It Works Section',
             ])
-                ->addWysiwyg('title', [
-                    'label' => 'Title',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addRepeater('add_how_it_works', [
-                    'label' => 'Steps',
-                    'instructions' => 'Add steps',
-                    'layout' => 'block',
-                    'button_label' => 'Add Step',
-                ])
-                    ->addImage('image', [
-                        'label' => 'Image',
-                        'return_format' => 'id',
-                        'preview_size' => 'medium',
-                    ])
-                    ->addText('title', [
-                        'label' => 'Title',
-                    ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Description',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                ->endRepeater()
+                ->addPartial(new \App\Fields\Partials\HowItWorks())
             ->endGroup()
 
             // Partnerzy Section
