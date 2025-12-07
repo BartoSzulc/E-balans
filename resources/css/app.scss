@@ -1,0 +1,338 @@
+// Plugins
+@import "../../node_modules/swiper/swiper-bundle.css";
+@import "../../node_modules/glightbox/dist/css/glightbox.css";
+@import '../../node_modules/tom-select/dist/css/tom-select.min.css';
+@import "../../node_modules/preline/variants.css";
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/aos';
+
+
+// Components
+@import 'components/fonts';
+@import 'components/buttons';
+//@import 'components/post';
+@import 'components/form';
+@import 'components/menu';
+@import 'components/decoration';
+
+// Pages
+@import 'pages/home';
+
+
+body {
+    @apply font-primary font-medium;
+    @apply text-16;
+    @apply text-color-1;
+}
+.container {
+    max-width: #{px-rem(1876, 192)}; // 1876px at 1920px viewport
+    @apply mx-auto px-24;
+    @media (max-width: 1023px) {
+        max-width: 22.5rem; // 720px at 1023px viewport
+        @apply px-15;
+    }
+}
+.max-w-container {
+    max-width: #{px-rem(1876, 192)}; // 1876px at 1920px viewport
+    @apply ml-auto max-lg:max-w-full;
+}
+
+
+
+.socials {
+   
+
+    .social {
+
+        a {
+            @apply size-44 flex items-center justify-center transition-all duration-300 ease-in-out;
+
+        }
+
+        svg {
+
+            path {
+                @apply transition-all duration-300 ease-in-out;
+
+            }
+        }
+
+
+    }
+    &--header {
+        @apply gap-10;
+        svg {
+            path {
+                @apply fill-color-1;
+            }
+        }
+        a {
+            &:hover {
+                svg {
+                    path {
+                        @apply fill-color-2;
+                    }
+                }
+            }
+        }
+    }
+    &--footer {
+        @apply gap-30;
+        svg {
+            path {
+                @apply fill-color-2;
+            }
+        }
+        a {
+            &:hover {
+                svg {
+                    path {
+                        @apply fill-color-1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+a {
+    @apply no-underline;
+}
+
+.swiperTestimonial1,
+.swiperTestimonial2, {
+    .swiper-slide {
+        @apply lg:h-auto;
+    }
+}
+
+.swiperPartners {
+    .swiper-slide {
+        @apply h-auto flex;
+
+    }
+}
+
+.swiperRealizacje {
+    contain: paint;
+    overflow-x: clip;
+
+    .swiper-slide {
+        @apply lg:w-596;
+    }
+
+}
+
+.swiperGallery {
+    .swiper-slide {
+        transition-duration: 500ms;
+        transition-property: transform, opacity;
+        @apply opacity-0;
+
+        &.swiper-slide-visible {
+            @apply opacity-100;
+        }
+    }
+}
+
+.list-styled {
+    ul {
+        @apply list-disc pl-24 text-base;
+
+    }
+}
+
+.list-checked {
+    @apply space-y-10;
+
+    li {
+        @apply list-none relative gap-x-20 flex items-center text-base;
+
+        &::before {
+            @apply relative size-30;
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z' fill='%235CE6DE'/%3E%3Cpath d='M23.5746 10.9394L15.4541 19.0604L14.9982 19.5163L12.5537 21.9603L9.65332 19.0604L6.42188 15.8284L9.32227 12.928L12.5537 16.1601L14.9982 13.7155L20.6742 8.03955L23.5746 10.9394Z' fill='%230F529E'/%3E%3C/svg%3E%0A");
+
+        }
+    }
+}
+
+
+.blur-elipse {
+    @apply bg-color-2;
+    opacity: 0.1;
+    filter: blur(100px);
+    @apply size-460 rounded-full;
+}
+
+.page {
+    .e-content {
+        @apply flex flex-col gap-20 lg:gap-40;
+
+        h1 {
+            @apply text-h1;
+        }
+
+        h2 {
+            @apply text-h3;
+        }
+
+        h3 {
+            @apply text-h4;
+        }
+
+        h4 {
+            @apply text-h5;
+        }
+
+        ul {
+            @apply list-disc pl-24 text-base;
+        }
+    }
+
+    .wp-block-group {
+        @apply flex flex-col gap-12;
+    }
+
+    .wp-block-heading {
+        @apply mb-10;
+
+    }
+
+}
+
+@keyframes translate {
+
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.gradient-blue {
+    background: radial-gradient(100% 399.03% at 50% 0%, #0F529E 0%, #0B284A 100%);
+}
+.gradient-color-2 {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(92, 230, 222, 0.5) 100%);
+    transform: rotate(180deg);
+}
+
+
+
+.page-hero {
+    &__greypanel {
+        @apply bg-color-2/30 py-40 px-10 text-h5 text-center;
+    }
+}
+
+.path-svg {
+    shape-rendering: crispEdges;
+
+    line {
+        @apply stroke-1;
+
+    }
+}
+
+.svg-container {
+    @apply w-1829 top-160 left-1/2 -translate-x-1/2 absolute z-20 h-full pointer-events-none;
+
+    &.not-automated {
+        @apply px-2;
+    }
+}
+
+.page-template-template-home {
+    .svg-container {
+        @apply top-180;
+    }
+}
+
+.footer-svg {
+    svg {
+        shape-rendering: crispEdges;
+
+        line {
+            @apply stroke-1;
+
+        }
+    }
+}
+
+.steps-technologia {
+    @apply align-baseline;
+}
+
+.podzial-bg {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 87.23%, #000000 100%);
+}
+
+.link-decoration {
+    @apply underline underline-offset-2 decoration-transparent transition-all duration-500 ease-in-out;
+
+    &:hover {
+        @apply decoration-current;
+    }
+}
+
+// .swiper-button {
+//     @apply cursor-pointer;
+//     svg {
+//         path {
+//             @apply transition-all duration-500 ease-power2-out;
+//         }
+//     }
+// }
+
+
+.pulse span {
+    animation: pulseAnimate 2s ease-out infinite;
+    animation-delay: calc(1s*var(--i));
+    background-color: inherit;
+    border-radius: 9999px;
+    height: 100%;
+    opacity: .8;
+    position: absolute;
+    width: 100%
+}
+
+@keyframes pulseAnimate {
+    to {
+        opacity: 0;
+        transform: scale(1.80);
+    }
+}
+
+/* Animated dashed border on the path */
+.production-line {
+    stroke-dasharray: 20 10;
+    animation: dash 1.4s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -30;
+    }
+}
+
+/* Container for the SVG */
+.svg-wrapper {
+    display: inline-block;
+}
+.svg-wrapper:hover .production-line {
+    animation: dash 0.7s linear infinite;
+}
+
+.border-dashed-custom {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2366B0C0FF' stroke-dasharray='6.6' stroke-dashoffset='28.96' stroke-linecap='square'/%3e%3c/svg%3e");
+    @apply bg-no-repeat bg-contain bg-center;
+}

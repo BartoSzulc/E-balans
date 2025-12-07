@@ -1,0 +1,120 @@
+// Components
+@import 'components/fonts';
+
+// Abstracts
+@import 'abstracts/variables';
+
+.editor-visual-editor__post-title-wrapper {
+  margin-top: 0 !important;
+}
+.block-editor-writing-flow {
+  @apply font-primary ;
+ 
+}
+
+.block-editor-iframe__html {
+  @apply font-primary;
+}
+.block-editor-iframe__body {
+    @apply font-primary;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 150%;
+    color: #393939;
+    p {
+      font-size: 16px !important;
+      line-height: 150% !important;
+      color: #010100;
+    }
+    h1 {
+      font-size: 64px !important;
+      line-height: 120% !important;
+      font-weight: 500 !important;
+      color: #010100;
+    }
+    h2 {
+      font-size: 48px !important;
+      line-height: 120% !important;
+      font-weight: 500 !important;
+      color: #010100;
+    }
+    h3 {
+      font-size: 26px !important;
+      line-height: 120% !important;
+      font-weight: 500 !important;
+      color: #010100;
+    }
+    h4 {
+      font-size: 40px !important;
+      line-height: 120% !important;
+      font-weight: 500 !important;
+      color: #010100;
+    }
+    h5 {
+      font-size: 32px;
+      line-height: 120% !important;
+      color: #010100;
+    }
+    h6 {
+      font-size: 28px !important;
+      line-height: 120% !important;
+      color: #010100;
+    }
+    .text-lg {
+      font-size: 18px !important;
+      line-height: 150%!important;
+
+    }
+    .text-md {
+      font-size: 16px !important;
+      line-height: 150% !important;
+    }
+    .text-sm {
+      font-size: 14px !important;
+      line-height: 150% !important;
+    }
+    .text-xs {
+      font-size: 12px !important;
+      line-height: 150% !important;
+    }
+    .text-xl {
+      font-size: 20px !important;
+      line-height: 150% !important;
+    }
+    .text-h6 {
+      font-size: 28px !important;
+      line-height: 120% !important;
+      
+    }
+    .lg\:text-h3 {
+      font-size: 48px !important;
+      line-height: 120% !important;
+      font-weight: 500 !important;
+
+    }
+    .text-purple900 {
+      color: #1B0A40 !important;
+    }
+    .text-primary700 {
+      color: #393939 !important;
+    }
+    .text-purple600 {
+      color: #8F59E8 !important;
+    }
+    .text-primary900 {
+      color: #010100 !important;
+    }
+
+
+}
+/* Add these to your existing editor.css file */
+
+.block-editor-block-list__block{
+  @apply mb-[12px];
+}
+
+.wp-block-sage-text-group, .wp-block-sage-image, .wp-block-sage-testimonial {
+  margin-bottom: 40px;
+}

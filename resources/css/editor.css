@@ -1,0 +1,536 @@
+@charset "UTF-8";
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * CUSTOM FONT LOADING (From Figma Design Tokens)
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * SELF-HOSTED FONTS STRATEGY
+ *
+ * This boilerplate uses self-hosted fonts instead of Google Fonts for:
+ * ✓ Better performance (no external DNS lookup)
+ * ✓ GDPR compliance (no data sent to Google)
+ * ✓ Offline availability
+ * ✓ Full control over loading behavior
+ *
+ * FONT DISPLAY STRATEGY: swap
+ * - Shows system font immediately while custom font loads
+ * - Swaps to custom font once loaded (prevents invisible text)
+ * - Best for performance and user experience
+ * - Other options: auto, block, fallback, optional
+ *
+ * HOW TO ADD NEW FONTS:
+ * 1. Download .woff2 files (use google-webfonts-helper.herokuapp.com)
+ * 2. Place files in /resources/fonts/
+ * 3. Add @font-face declarations below
+ * 4. Update --font-* variables in abstracts/_variables.scss
+ * 5. Rebuild with `npm run build`
+ *
+ * CURRENT FONTS (From Figma):
+ * - Gantari (Primary): Multiple weights (400, 600, 700)
+ * - Sansita (Secondary/Testimonials): 1 weight (400 italic)
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+/* ─────────────────────────────────────────────────────────────────────────
+ * GANTARI - Primary Font (From Figma)
+ * ─────────────────────────────────────────────────────────────────────────
+ * A modern sans-serif typeface
+ * Used for: Body text, headings, UI components, buttons, menus
+ * Source: Google Fonts
+ * Supports: Latin, Latin Extended character sets
+ *
+ * Required weights from Figma: 400, 600, 700
+ */
+/* Regular (400) */
+@import "tailwindcss" theme(static);
+@font-face {
+  font-display: swap;
+  font-family: "Gantari";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/gantari-v4-latin_latin-ext-regular.woff2") format("woff2");
+}
+/* Semi-Bold (600) */
+@font-face {
+  font-display: swap;
+  font-family: "Gantari";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/gantari-v4-latin_latin-ext-600.woff2") format("woff2");
+}
+/* Bold (700) */
+@font-face {
+  font-display: swap;
+  font-family: "Gantari";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/gantari-v4-latin_latin-ext-700.woff2") format("woff2");
+}
+/* ─────────────────────────────────────────────────────────────────────────
+ * SANSITA - Secondary Font (From Figma)
+ * ─────────────────────────────────────────────────────────────────────────
+ * An elegant typeface for testimonials and quotes
+ * Used for: Testimonials (opinia), quotes, decorative text
+ * Source: Google Fonts
+ * Supports: Latin, Latin Extended character sets
+ *
+ * Required: 400 italic
+ */
+/* Regular Italic (400) */
+@font-face {
+  font-display: swap;
+  font-family: "Sansita";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/sansita-v12-latin_latin-ext-italic.woff2") format("woff2");
+}
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * TAILWIND CSS 4.0 - THEME VARIABLES
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * This file defines the entire design system using Tailwind CSS 4.0's @theme
+ * directive. All CSS variables are automatically available in Tailwind classes.
+ *
+ * KEY FEATURES:
+ *
+ * 1. FLUID RESPONSIVE DESIGN SYSTEM
+ *    - Desktop: Uses 192px base (1920px viewport / 10)
+ *    - Mobile: Uses 32px base (fixed)
+ *    - Root font-size is dynamically set via JavaScript (see app/setup.php)
+ *    - All measurements use rem units, scaling proportionally with viewport
+ *
+ * 2. PX-TO-REM CONVERSION FUNCTIONS
+ *    - px-rem($value, $quotient): Converts px values to rem
+ *    - Desktop quotient: 192 (for 1920px viewport)
+ *    - Mobile quotient: 32 (for mobile devices)
+ *    - Example: px-rem(72, 192) = 0.375rem (72px at 1920px viewport)
+ *
+ * 3. USAGE IN HTML
+ *    Variables can be used via Tailwind utility classes:
+ *    - text-h1         → var(--text-h1) with line-height and font-weight
+ *    - text-color-1    → var(--color-color-1)
+ *    - rounded-40      → var(--radius-40)
+ *    - font-primary    → var(--font-primary)
+ *
+ * 4. RESPONSIVE BEHAVIOR
+ *    - @media (max-width: 1023px) recalculates all variables for mobile
+ *    - Same variable names, different calculated values
+ *    - Ensures consistent scaling across all screen sizes
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@source "../views/";
+@source "../../app/";
+/**
+ * ─────────────────────────────────────────────────────────────────────────
+ * PX-TO-REM CONVERSION FUNCTIONS
+ * ─────────────────────────────────────────────────────────────────────────
+ * These functions convert pixel values to rem units based on a quotient.
+ *
+ * @param $px-value - The pixel value to convert (e.g., 72)
+ * @param $quotient - The base font size (192 for desktop, 32 for mobile)
+ * @return rem value as a string
+ *
+ * Example: px-rem(72, 192) returns "0.375rem"
+ *          At 1920px viewport: 1rem = 192px, so 0.375rem = 72px
+ *          The root font-size is set dynamically: window.innerWidth / 10
+ */
+@custom-variant hover (&:hover);
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @THEME BLOCK - DESKTOP CONFIGURATION (1024px and above)
+ * ═══════════════════════════════════════════════════════════════════════════
+ * All variables defined here are automatically available in Tailwind CSS
+ * and can be used in utility classes or custom CSS.
+ */
+@theme {
+  /* ────────────────────────────────────────────────────────────────────
+   * TYPOGRAPHY - FONT FAMILIES (From Figma Design Tokens)
+   * ────────────────────────────────────────────────────────────────────
+   * Custom fonts are loaded in components/_fonts.scss
+   * Usage: font-primary, font-secondary
+   */
+  --font-primary: "Gantari", sans-serif;
+  --font-secondary: "Sansita", sans-serif;
+  /* ────────────────────────────────────────────────────────────────────
+   * BREAKPOINTS
+   * ────────────────────────────────────────────────────────────────────  */
+  --breakpoint-xs: 400px;
+  /* ────────────────────────────────────────────────────────────────────
+   * COLOR PALETTE (From Figma Design Tokens)
+   * ────────────────────────────────────────────────────────────────────
+   * Usage: bg-color-1, text-color-2, border-color-3, etc.
+   */
+  --color-color-1: #002234; /* Dark Navy/Blue */
+  --color-color-2: #66b0c0; /* Teal/Cyan */
+  --color-color-3: #c2f970; /* Lime Green */
+  --color-color-4: #e5e9eb; /* Light Gray */
+  --color-color-5: #ffffff; /* White */
+  /* ────────────────────────────────────────────────────────────────────
+   * SPACING SYSTEM
+   * ────────────────────────────────────────────────────────────────────
+   * Base spacing unit that scales with viewport
+   * Desktop: 0.00521rem = 1px at 1920px viewport
+   * Mobile: 0.03125rem = 1px at mobile viewport
+   * Use: space-x-[var(--spacing)*16] for 16px spacing
+   */
+  --spacing-desktop: 0.00521rem; /* 1px/192px at 1920px viewport */
+  --spacing-mobile: 0.03125rem; /* 1px at 32px base */
+  --spacing: var(--spacing-desktop); /* Default to desktop */
+  /* ────────────────────────────────────────────────────────────────────
+   * SHADOWS (From Figma Design Tokens)
+   * ────────────────────────────────────────────────────────────────────
+   * Usage: shadow-cien-1-1, shadow-cien-1-2
+   */
+  --shadow-cien-1: 30px 30px 50px rgba(7, 24, 44, 0.2);
+  --shadow-cien-2: 30px 40px 40px rgba(7, 24, 44, 0.15);
+  /* ────────────────────────────────────────────────────────────────────
+   * BORDER RADIUS SCALE
+   * ────────────────────────────────────────────────────────────────────
+   * Fluid border radius system using px-rem() function
+   * Desktop base: 192px | Mobile base: 32px
+   * Usage: rounded-40, rounded-20, rounded-8, etc.
+   */
+  --radius-80: 0.4166666667rem; /* 80px at 1920px viewport */
+  --radius-40: 0.2083333333rem; /* 40px at 1920px viewport */
+  --radius-30: 0.15625rem; /* 30px at 1920px viewport */
+  --radius-20: 0.1041666667rem; /* 20px at 1920px viewport */
+  --radius-16: 0.0833333333rem; /* 10px at 1920px viewport */
+  --radius-12: 0.0625rem; /* 12px at 1920px viewport */
+  --radius-10: 0.0520833333rem; /* 12px at 1920px viewport */
+  --radius-8: 0.04167rem; /* 8px at 1920px viewport */
+  --radius-6: 0.03125rem; /* 6px at 1920px viewport */
+  --radius-4: 0.02083rem; /* 4px at 1920px viewport */
+  --radius-2: 0.01042rem; /* 2px at 1920px viewport */
+  --radius-1: 0.00521rem; /* 1px at 1920px viewport */
+  /* ────────────────────────────────────────────────────────────────────
+   * TYPOGRAPHY SCALE
+   * ────────────────────────────────────────────────────────────────────
+   * Complete typography system with size, line-height, and weight
+   * Each text style has three related variables:
+   *   --text-{name}              → Font size
+   *   --text-{name}--line-height → Line height
+   *   --text-{name}--font-weight → Font weight
+   *
+   * USAGE IN CSS:
+   *   .heading-1 {
+   *     font-size: var(--text-h1);
+   *     line-height: var(--text-h1--line-height);
+   *     font-weight: var(--text-h1--font-weight);
+   *   }
+   *
+   * OR use Tailwind utilities: text-h1, text-h2, etc.
+   */
+  /* Heading Styles (From Figma Design Tokens) */
+  --text-h1: 0.3229166667rem; /* 62px at 1920px viewport */
+  --text-h1--line-height: 0.3333333333rem;
+  --text-h1--font-weight: 600; /* Semi-Bold */
+  --text-h2: 0.25rem; /* 48px at 1920px viewport */
+  --text-h2--line-height: 0.3229166667rem;
+  --text-h2--font-weight: 600; /* Semi-Bold */
+  --text-h3: 0.1979166667rem; /* 38px at 1920px viewport */
+  --text-h3--line-height: 0.2291666667rem;
+  --text-h3--font-weight: 600; /* Semi-Bold */
+  --text-h4: 0.1458333333rem; /* 28px at 1920px viewport */
+  --text-h4--line-height: 0.1875rem;
+  --text-h4--font-weight: 600; /* Semi-Bold */
+  --text-h5: 0.1145833333rem; /* 22px at 1920px viewport */
+  --text-h5--line-height: 0.15625rem;
+  --text-h5--font-weight: 600; /* Semi-Bold */
+  /* Body Text Styles (From Figma Design Tokens) */
+  --text-16: 0.0833333333rem; /* 16px at 1920px viewport */
+  --text-16--line-height: 0.125rem;
+  --text-16--font-weight: 400;
+  --text-18: 0.09375rem; /* 18px at 1920px viewport */
+  --text-18--line-height: 0.1354166667rem;
+  --text-18--font-weight: 400;
+  /* Component Text Styles (From Figma Design Tokens) */
+  --text-menu: 0.09375rem; /* Navigation menu text */
+  --text-menu--line-height: 0.125rem;
+  --text-menu--font-weight: 700;
+  --text-button: 0.0833333333rem; /* Button text (przycisk) */
+  --text-button--line-height: 0.09375rem;
+  --text-button--font-weight: 600;
+  --text-menu-stopka: 0.09375rem; /* Footer menu text */
+  --text-menu-stopka--line-height: 0.15625rem;
+  --text-menu-stopka--font-weight: 700;
+  --text-menu-stopka--letter-spacing: 0.9px;
+  --text-zgody: 0.0625rem; /* Legal/consent text (zgody_formularz) */
+  --text-zgody--line-height: 0.1041666667rem;
+  --text-zgody--font-weight: 400;
+  --text-naglowek: 0.1041666667rem; /* Section headers (nagłówek) */
+  --text-naglowek--line-height: 0.1666666667rem;
+  --text-naglowek--font-weight: 600;
+  --text-naglowek--letter-spacing: 2px;
+  --text-naglowek--text-transform: uppercase;
+  /* Testimonial/Quote Styles */
+  --text-opinia: 0.1041666667rem; /* Testimonial/opinion text (Sansita italic) */
+  --text-opinia--line-height: 0.15625rem;
+  --text-opinia--font-weight: 400;
+  --text-opinia--font-style: italic;
+  --text-opinia--font-family: var(--font-secondary);
+  /* ────────────────────────────────────────────────────────────────────
+   * LINE HEIGHT UTILITIES
+   * ────────────────────────────────────────────────────────────────────
+   * Percentage-based line heights for custom typography
+   */
+  --leading-120: 120%;
+  --leading-130: 130%;
+  --leading-150: 150%;
+  /* ────────────────────────────────────────────────────────────────────
+   * BORDER WIDTHS
+   * ────────────────────────────────────────────────────────────────────  */
+  --border-width-3: 0.015625rem; /* 3px at 1920px viewport */
+  --border-width-1: 0.00521rem; /* 1px at 1920px viewport */
+  /* ────────────────────────────────────────────────────────────────────
+   * ANIMATION & EASING
+   * ────────────────────────────────────────────────────────────────────
+   * Custom easing curves and animation presets
+   * Based on GSAP easing functions
+   */
+  --ease-power1-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-power2-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animate-pulse-ring: pulse-ring 2s var(--ease-power2-out) infinite;
+  --grid-34e: 2.3020833333rem; /* 340px grid column */
+  /* ────────────────────────────────────────────────────────────────────
+   * KEYFRAME ANIMATIONS
+   * ────────────────────────────────────────────────────────────────────  */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(23%);
+      animation-timing-function: 1s;
+    }
+    50% {
+      transform: translateY(7%);
+      animation-timing-function: 1s;
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.15;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+}
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * MOBILE RESPONSIVE CONFIGURATION (max-width: 1023px)
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * ALL variables are recalculated for mobile using quotient of 32 instead of 192
+ * This ensures the design scales appropriately on smaller screens
+ *
+ * The root font-size is set to 32px on mobile (see app/setup.php)
+ * Therefore: 1rem = 32px on mobile
+ *
+ * Example calculation:
+ *   Desktop: --text-h1: px-rem(72, 192) = 0.375rem (72px at 1920px viewport)
+ *   Mobile:  --text-h1: px-rem(56, 32)  = 1.75rem  (56px at mobile viewport)
+ *
+ * Note: px values are often different on mobile (e.g., 56px vs 72px) for
+ * better readability on smaller screens
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+@media (max-width: 1023px) {
+  :root {
+    --spacing: var(--spacing-mobile); /* Switch to mobile spacing */
+    --radius-80: 2.5rem; /* 80px at 1920px viewport */
+    --radius-40: 1.25rem; /* 40px at 1920px viewport */
+    --radius-30: 0.9375rem; /* 30px at 1920px viewport */
+    --radius-20: 0.625rem; /* 20px at 1920px viewport */
+    --radius-16: 0.5rem; /* 10px at 1920px viewport */
+    --radius-12: 0.375rem; /* 12px at 1920px viewport */
+    --radius-10: 0.3125rem; /* 12px at 1920px viewport */
+    --radius-8: 0.25rem; /* 8px at 1920px viewport */
+    --radius-6: 0.1875rem; /* 6px at 1920px viewport */
+    --radius-4: 0.125rem; /* 4px at 1920px viewport */
+    --radius-2: 0.0625rem; /* 2px at 1920px viewport */
+    --radius-1: 0.03125rem; /* 1px at 1920px viewport */
+    --text-h1: 1.5rem; /* Smaller on mobile */
+    --text-h1--line-height: 1.625rem;
+    --text-h1--font-weight: 600; /* Semi-Bold */
+    --text-h2: 1.1875rem;
+    --text-h2--line-height: 1.375rem;
+    --text-h2--font-weight: 600; /* Semi-Bold */
+    --text-h3: 0.875rem;
+    --text-h3--line-height: 1.0625rem;
+    --text-h3--font-weight: 600; /* Semi-Bold */
+    --text-h4: 0.75rem;
+    --text-h4--line-height: 0.9375rem;
+    --text-h4--font-weight: 600; /* Semi-Bold */
+    --text-h5: 0.5625rem;
+    --text-h5--line-height: 0.75rem;
+    --text-h5--font-weight: 600; /* Semi-Bold */
+    --text-16: 0.5rem;
+    --text-16--line-height: 0.75rem;
+    --text-16--font-weight: 400;
+    --text-18: 0.5625rem;
+    --text-18--line-height: 0.8125rem;
+    --text-18--font-weight: 400;
+    --text-menu: 0.5625rem;
+    --text-menu--line-height: 0.75rem;
+    --text-menu--font-weight: 700;
+    --text-button: 0.5rem;
+    --text-button--line-height: 0.5625rem;
+    --text-button--font-weight: 600;
+    --text-menu-stopka: 0.5625rem;
+    --text-menu-stopka--line-height: 0.9375rem;
+    --text-menu-stopka--font-weight: 700;
+    --text-menu-stopka--letter-spacing: 0.9px;
+    --text-zgody: 0.375rem;
+    --text-zgody--line-height: 0.625rem;
+    --text-zgody--font-weight: 400;
+    --text-naglowek: 0.5625rem;
+    --text-naglowek--line-height: 0.875rem;
+    --text-naglowek--font-weight: 600;
+    --text-naglowek--letter-spacing: 2px;
+    --leading-120: 120%;
+    --leading-130: 130%;
+    --leading-150: 150%;
+    --border-width-3: 0.09375rem; /* 3px at 1920px viewport */
+    --border-width-1: 0.03125rem; /* 3px at 1920px viewport */
+    --text-opinia: 0.5625rem; /* Testimonial text (Sansita italic) */
+    --text-opinia--line-height: 0.8125rem;
+    --text-opinia--font-weight: 400;
+    --text-opinia--font-style: italic;
+    --ease-power1-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --ease-power2-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --animate-pulse-ring: pulse-ring 2s var(--ease-power2-out) infinite;
+    --text-cytat: 0.9375rem;
+    --text-cytat--line-height: 0.9375rem;
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.15;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+}
+.editor-visual-editor__post-title-wrapper {
+  margin-top: 0 !important;
+}
+
+.block-editor-writing-flow {
+  @apply font-primary;
+}
+
+.block-editor-iframe__html {
+  @apply font-primary;
+}
+
+.block-editor-iframe__body {
+  @apply font-primary;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 150%;
+  color: #393939;
+}
+.block-editor-iframe__body p {
+  font-size: 16px !important;
+  line-height: 150% !important;
+  color: #010100;
+}
+.block-editor-iframe__body h1 {
+  font-size: 64px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  color: #010100;
+}
+.block-editor-iframe__body h2 {
+  font-size: 48px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  color: #010100;
+}
+.block-editor-iframe__body h3 {
+  font-size: 26px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  color: #010100;
+}
+.block-editor-iframe__body h4 {
+  font-size: 40px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  color: #010100;
+}
+.block-editor-iframe__body h5 {
+  font-size: 32px;
+  line-height: 120% !important;
+  color: #010100;
+}
+.block-editor-iframe__body h6 {
+  font-size: 28px !important;
+  line-height: 120% !important;
+  color: #010100;
+}
+.block-editor-iframe__body .text-lg {
+  font-size: 18px !important;
+  line-height: 150% !important;
+}
+.block-editor-iframe__body .text-md {
+  font-size: 16px !important;
+  line-height: 150% !important;
+}
+.block-editor-iframe__body .text-sm {
+  font-size: 14px !important;
+  line-height: 150% !important;
+}
+.block-editor-iframe__body .text-xs {
+  font-size: 12px !important;
+  line-height: 150% !important;
+}
+.block-editor-iframe__body .text-xl {
+  font-size: 20px !important;
+  line-height: 150% !important;
+}
+.block-editor-iframe__body .text-h6 {
+  font-size: 28px !important;
+  line-height: 120% !important;
+}
+.block-editor-iframe__body .lg\:text-h3 {
+  font-size: 48px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+}
+.block-editor-iframe__body .text-purple900 {
+  color: #1B0A40 !important;
+}
+.block-editor-iframe__body .text-primary700 {
+  color: #393939 !important;
+}
+.block-editor-iframe__body .text-purple600 {
+  color: #8F59E8 !important;
+}
+.block-editor-iframe__body .text-primary900 {
+  color: #010100 !important;
+}
+
+/* Add these to your existing editor.css file */
+.block-editor-block-list__block {
+  @apply mb-[12px];
+}
+
+.wp-block-sage-text-group, .wp-block-sage-image, .wp-block-sage-testimonial {
+  margin-bottom: 40px;
+}

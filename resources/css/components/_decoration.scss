@@ -1,0 +1,40 @@
+/**
+ * Decoration Element Clip-Path Styles
+ * Triangular corner decorations using CSS clip-path
+ */
+
+// Top-Left Corner
+.clip-top-left-1 {
+  clip-path: polygon(100% 0%, 0% 0%, 0% 100%);
+}
+
+.clip-top-left-2 {
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+// Top-Right Corner
+.clip-top-right-1 {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.clip-top-right-2 {
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+// Bottom-Left Corner
+.clip-bottom-left-1 {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-bottom-left-2 {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+// Bottom-Right Corner
+.clip-bottom-right-1 {
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-bottom-right-2 {
+  clip-path: polygon(100% 0%, 0% 0%, 0% 100%);
+}

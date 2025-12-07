@@ -1,0 +1,6 @@
+<div class="swiper-button {{ $class ?? '' }} group cursor-pointer relative z-10">
+    <svg class="size-50 lg:size-100 group" preserveAspectRatio="xMidYMax meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="transition-all duration-500 ease-power2-out group-hover:stroke-color-2 group-hover:fill-color-2 " d="M50 0.5C77.3381 0.5 99.5 22.6619 99.5 50C99.5 77.3381 77.3381 99.5 50 99.5C22.6619 99.5 0.5 77.3381 0.5 50C0.5 22.6619 22.6619 0.5 50 0.5Z" fill="white" fill-opacity="0.8" stroke="#5CE6DE" stroke-linecap="square"/>
+        <path class="transition-all duration-500 ease-power2-out " d="M66.6538 48.3432L37.3927 48.3299L42.8582 42.8546C43.1807 42.5408 43.3628 42.1099 43.3628 41.6599C43.3502 40.1751 41.5496 39.446 40.5081 40.5043L32.1681 48.8344C31.5153 49.4857 31.5153 50.5432 32.1681 51.1945L40.5081 59.5245C42.0835 61.156 44.4983 58.7276 42.8582 57.1613L37.3602 51.6632L66.6538 51.6766C67.5934 51.6933 68.3609 50.93 68.3515 49.9904C68.3452 49.0647 67.5793 48.3252 66.6538 48.3432Z" fill="#0F529E"/>
+    </svg>                  
+</div>

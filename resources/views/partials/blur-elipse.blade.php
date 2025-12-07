@@ -1,0 +1,1 @@
+<div class="absolute  pointer-events-none z-1 blur-elipse {{ $class ?? null}}"></div>

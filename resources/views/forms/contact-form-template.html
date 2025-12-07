@@ -1,0 +1,30 @@
+<div class="form__grid">
+    <div class="form__grid-col form__grid-col--col-12">
+        <div class="text-center heading text-h4 lg:py-50 py-30">
+            <h2>Formularz kontaktowy</h2>
+        </div>
+       <label> <b>Imię i nazwisko*</b>
+            [text* your-name placeholder "Imię i nazwisko"]
+        </label>
+       <label> <b>Firma</b>
+            [text your-firma placeholder "Nazwa firmy"]
+        </label>
+ <label> <b>Adres e-mail *</b>
+            [email* your-email placeholder "E-mail"]
+        </label>
+        <label> <b>Numer telefonu *</b>
+            [tel your-phone placeholder "+48..."]
+        </label>
+
+        <label> <b>Twoja wiadomość *</b>
+            [textarea your-message placeholder "Treść wiadomości"]
+        </label>
+
+        <div class="acceptance-button">
+        [acceptance acceptance-201 optional] <span class="check"></span><p class="text-polityka text-zgody">Wyrażam zgodę na przetwarzanie danych zgodnie z <a class="link-underline" href="/polityka-prywatnosci/">polityka prywatności</a> w firmie LogoTape.</p>
+[/acceptance]
+        <button type="submit" class="svg-button-alt wpcf7-form-control wpcf7-submit"> <span class="relative z-10 w-200 lg:w-592">Wyślij wiadomość</span></button>
+</div>
+
+    </div>
+</div>

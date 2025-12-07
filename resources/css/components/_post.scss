@@ -1,0 +1,104 @@
+.post {
+    &:hover {
+        .icon {
+            .icon-original svg {
+                @apply -translate-y-full translate-x-full;
+            }
+            .icon-hover svg {
+                @apply translate-y-0 translate-x-0;
+            }
+        }
+        img {
+            @apply scale-105;
+        }
+    }
+}
+
+// .post {
+//     .e-content {
+//         @apply flex flex-col gap-30 lg:gap-60;
+//     }
+//     .wp-block-group {
+//         @apply flex flex-col gap-20;
+//     }
+// }
+
+.page {
+    .e-content {
+        @apply flex flex-col  text-white;
+        h1 {
+            @apply text-h1;
+        }
+        h2 {
+            @apply text-h3;
+        }
+        h3 {
+            @apply text-h4;
+        }
+        h4 {
+            @apply text-h5;
+        }
+    }
+    .wp-block-group {
+        @apply flex flex-col gap-12;
+    }
+    .wp-block-heading {
+        @apply mb-8;
+        @apply text-white;
+    }
+    
+}
+.posts-navigation {
+    ul {
+        @apply flex gap-16 lg:gap-24 items-center justify-center;
+        .page-item {
+            @apply size-48 lg:size-56 rounded-4 border   transition-all duration-500 ease-in-out;
+            @apply flex items-center justify-center;
+            a {
+                @apply size-full flex text-center items-center justify-center;
+            }
+            &.next,
+            &.prev {
+                @apply size-48 lg:size-56;
+                svg {
+                    @apply fill-transparent;
+                    @apply stroke-black;
+                }
+                svg, path, circle {
+                    @apply transition-all duration-300 ease-in-out;
+            
+                }
+                @apply transition-all duration-300 ease-in-out bg-transparent;
+          
+            }
+            &.active {
+                @apply   text-color-2  ;
+            }
+            &:hover {
+                @apply  ;
+                &.next,
+                &.prev {
+                    svg {
+                        @apply fill-color-7;
+                        @apply stroke-white;
+                    }
+                    circle {
+                        @apply stroke-white;
+                        @apply fill-color-7;
+                    }
+        
+                    path {
+                        @apply fill-white;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.single {
+    .wp-block-group {
+      @apply space-y-40;
+    }
+  }

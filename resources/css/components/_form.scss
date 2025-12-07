@@ -1,0 +1,139 @@
+.form {
+    
+    &__grid {
+        @apply grid grid-cols-12 gap-20;
+        &-col{
+            @apply col-span-full grid gap-20 items-center;
+            label {
+                @apply text-color-5 ;
+                b {
+                    @apply text-16 font-medium pl-20;
+                }
+                .wpcf7-form-control-wrap {
+                    @apply mt-1;
+                }
+            }
+            input, textarea {
+                @apply  w-full flex  border-1 border-color-2 text-white uppercase rounded-tl-20 rounded-br-20 text-button py-18 px-20 transition-all duration-300 ease-linear;
+                &::placeholder {
+                    @apply text-white transition-all duration-300 ease-linear;
+                }
+                
+                &:hover {
+                }
+                &:focus {
+                    @apply border-color-3 outline-none;
+
+                    &::placeholder {
+                        @apply border-color-3;
+                    }
+                }
+                &.wpcf7-not-valid {
+                    @apply  border-[#D80000];
+                }
+            }
+            select,
+            .ts-control {
+                @apply mt-8;
+                
+            }
+            textarea {
+                @apply h-180 rounded-tl-20 rounded-br-20;   
+
+            }
+            &--col-3 {
+                @apply grid-cols-1 lg:grid-cols-3;
+            }
+            &--col-12 {
+                @apply grid-cols-1;
+            }
+            &--col-6 {
+                @apply grid-cols-1 lg:grid-cols-2;
+            }
+        }
+        .left,
+        .right  {
+            @apply flex h-full gap-30 flex-col;
+        }
+        .right {
+            .form__grid-col {
+                &.form__grid-col--col-12 {
+                    @apply grow-0 h-full;
+                }
+                .wpcf7-form-control-wrap {
+                    @apply h-full;
+                }
+            }
+        }
+    }
+
+    
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+// validation errors ourput bottom of form
+.wpcf7-not-valid-tip {
+    @apply absolute -bottom-20 min-w-full w-full flex gap-4 items-center h-18;
+    @apply transition-all text-zgody duration-300 ease-linear text-[#D80000];
+    &:before {
+        content: url("data:image/svg+xml,%3Csvg preserveAspectRatio='xMidYMax meet' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10.6667V8.00004M8 5.33996V5.33333M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z' stroke='%23D80000' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        @apply size-16 bottom-2 relative;
+    }
+}
+.wpcf7-response-output {
+    @apply text-white text-center py-5 border rounded-6;
+    border-color:var(--color-color-2) !important;
+    
+    @media (min-width: 1024px) {
+        margin-right: 0px !important;
+    }
+}
+
+.wpcf7-validation-errors {
+    @apply mt-14 border-red-900 rounded-6 border w-fit mx-auto bg-white transition-all;
+
+}
+.wpcf7-list-item {
+    @apply m-0;
+}
+// .wpcf7-form-control-wrap {
+//     @apply flex h-auto;
+// }
+.wpcf7-acceptance {
+    @apply relative flex h-full;
+    label {
+     @apply p-0 flex h-fit;
+        span.check {
+            @apply relative;
+            &::before {
+                
+                @apply transition;
+                @apply size-30 border-1 bg-transparent border-color-2 rounded-4 box-border flex items-center;
+                @apply shrink-0;
+                @apply relative;
+                content: "";
+            }
+            &::after {
+                @apply opacity-0;
+                @apply absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  w-20 h-20;
+                content: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.5L4 6.5L9 1.5' stroke='%230B284A' stroke-width='1.6'/%3E%3C/svg%3E%0A");
+            }
+        }
+     }
+ 
+    .wpcf7-list-item-label {
+        @apply cursor-pointer flex items-start gap-20;
+        &:before {
+            @apply hidden;
+        }
+    }
+ }
+ .wpcf7-acceptance label > input:checked + .wpcf7-list-item-label .check::after {
+    @apply opacity-100;
+}
+.text-polityka {
+    @apply text-zgody text-white;
+}
