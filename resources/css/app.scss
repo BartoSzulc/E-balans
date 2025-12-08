@@ -27,15 +27,15 @@ body {
     @apply text-color-1;
 }
 .container {
-    max-width: #{px-rem(1876, 192)}; // 1876px at 1920px viewport
-    @apply mx-auto px-24;
+    max-width: #{px-rem(1500, 192)}; // 1440px content + 30px padding each side = 1500px at 1920px viewport
+    @apply mx-auto px-30;
     @media (max-width: 1023px) {
-        max-width: 22.5rem; // 720px at 1023px viewport
+        max-width: #{px-rem(1500, 32)}; // 1500px at mobile viewport
         @apply px-15;
     }
 }
 .max-w-container {
-    max-width: #{px-rem(1876, 192)}; // 1876px at 1920px viewport
+    max-width: #{px-rem(1500, 192)}; // 1500px at 1920px viewport
     @apply ml-auto max-lg:max-w-full;
 }
 

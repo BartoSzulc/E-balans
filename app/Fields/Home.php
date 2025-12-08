@@ -4,6 +4,8 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Builder;
 use Log1x\AcfComposer\Field;
+use App\Fields\Partials\HowItWorks;
+
 
 class Home extends Field
 {
@@ -25,374 +27,229 @@ class Home extends Field
         $builder
             // Hero Section
             ->addTab('hero', [
-                'label' => 'Hero Section',
+                'label' => 'Hero',
             ])
             ->addGroup('hero', [
-                'label' => 'Hero Configuration',
+                'label' => 'Hero Section',
             ])
                 ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
+                    'label' => 'Title',
                     'instructions' => 'Main heading for hero section',
                     'toolbar' => 'full',
                     'media_upload' => 0,
                 ])
                 ->addWysiwyg('description', [
-                    'label' => 'Opis',
+                    'label' => 'Description',
                     'instructions' => 'Hero description',
                     'toolbar' => 'full',
                     'media_upload' => 0,
                 ])
-                ->addRepeater('add_button', [
-                    'label' => 'Przyciski',
+                ->addRepeater('add_buttons', [
+                    'label' => 'Buttons',
                     'instructions' => 'Add call to action buttons',
                     'layout' => 'block',
-                    'button_label' => 'Dodaj przycisk',
+                    'button_label' => 'Add Button',
                 ])
-                    ->addLink('link', [
-                        'label' => 'Link',
+                    ->addLink('button', [
+                        'label' => 'Button',
                         'return_format' => 'array',
                     ])
                 ->endRepeater()
-                ->addTrueFalse('animated', [
-                    'label' => 'Animated?',
-                    'instructions' => 'Enable animation for this section',
-                    'default_value' => 0,
-                    'ui' => 1,
-                ])
-                ->addGallery('animated_images', [
-                    'label' => 'Obrazy do animacji',
-                    'instructions' => 'Gallery images for animation',
+                ->addImage('hero_image', [
+                    'label' => 'Hero Image',
                     'return_format' => 'id',
                     'preview_size' => 'medium',
-                    'conditional_logic' => [
-                        [
-                            [
-                                'field' => 'hero_animated',
-                                'operator' => '==',
-                                'value' => '1',
-                            ],
-                        ],
-                    ],
                 ])
             ->endGroup()
 
-            // About Us Section
-            ->addTab('about_us', [
+            // Aktualności Section
+            ->addTab('aktualnosci', [
+                'label' => 'Aktualności',
+            ])
+            ->addGroup('aktualnosci', [
+                'label' => 'Aktualności Section',
+            ])
+                ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ])
+                ->addRelationship('posts', [
+                    'label' => 'Posts',
+                    'instructions' => 'Select posts to display',
+                    'post_type' => ['post'],
+                    'filters' => ['search', 'taxonomy'],
+                    'return_format' => 'id',
+                ])
+                ->addLink('button', [
+                    'label' => 'Button',
+                    'return_format' => 'array',
+                ])
+            ->endGroup()
+
+            // O nas Section
+            ->addTab('o_nas', [
                 'label' => 'O nas',
             ])
-            ->addGroup('about_us', [
-                'label' => 'About Us Configuration',
+            ->addGroup('o_nas', [
+                'label' => 'O nas Section',
             ])
-                ->addText('section_id', [
-                    'label' => 'Section ID',
-                    'instructions' => 'HTML ID for this section',
-                    'default_value' => 'about-us',
-                ])
-                ->addRepeater('add_column', [
-                    'label' => 'Kolumny',
-                    'instructions' => 'Add columns with content',
+                ->addRepeater('images', [
+                    'label' => 'Images',
+                    'instructions' => 'Add images',
                     'layout' => 'block',
-                    'button_label' => 'Dodaj kolumnę',
+                    'button_label' => 'Add Image',
                 ])
                     ->addImage('image', [
-                        'label' => 'Obraz',
+                        'label' => 'Image',
                         'return_format' => 'id',
                         'preview_size' => 'medium',
                     ])
-                    ->addImage('logo', [
-                        'label' => 'Logo',
-                        'instructions' => 'Optional logo image',
-                        'return_format' => 'id',
-                        'preview_size' => 'thumbnail',
-                        'required' => 0,
-                    ])
-                    ->addText('title', [
-                        'label' => 'Tytuł',
-                    ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Opis',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
                 ->endRepeater()
-            ->endGroup()
-
-            // Rozwiązania Section
-            ->addTab('rozwiazania', [
-                'label' => 'Rozwiązania',
-            ])
-            ->addGroup('rozwiazania', [
-                'label' => 'Rozwiązania Configuration',
-            ])
-                ->addText('section_id', [
-                    'label' => 'Section ID',
-                    'instructions' => 'HTML ID for this section',
-                    'default_value' => 'rozwiazania',
-                ])
                 ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addRepeater('add_tab', [
-                    'label' => 'Zakładki',
-                    'instructions' => 'Add tabs with content',
-                    'layout' => 'block',
-                    'button_label' => 'Dodaj zakładkę',
-                ])
-                    ->addText('tab_name', [
-                        'label' => 'Nazwa zakładki',
-                    ])
-                    ->addWysiwyg('title', [
-                        'label' => 'Tytuł',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Opis',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                    ->addLink('button', [
-                        'label' => 'Przycisk',
-                        'return_format' => 'array',
-                    ])
-                    ->addRepeater('accordion', [
-                        'label' => 'Accordion',
-                        'instructions' => 'Add accordion items',
-                        'layout' => 'block',
-                        'button_label' => 'Dodaj element',
-                    ])
-                        ->addWysiwyg('title', [
-                            'label' => 'Tytuł',
-                            'toolbar' => 'full',
-                            'media_upload' => 0,
-                        ])
-                        ->addWysiwyg('description', [
-                            'label' => 'Opis',
-                            'toolbar' => 'full',
-                            'media_upload' => 0,
-                        ])
-                        ->addImage('image', [
-                            'label' => 'Obraz',
-                            'return_format' => 'id',
-                            'preview_size' => 'medium',
-                        ])
-                    ->endRepeater()
-                ->endRepeater()
-            ->endGroup()
-
-            // Standardy Section
-            ->addTab('standardy', [
-                'label' => 'Standardy',
-            ])
-            ->addGroup('standardy', [
-                'label' => 'Standardy Configuration',
-            ])
-                ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addWysiwyg('wysiwyg', [
-                    'label' => 'Opis',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addImage('background_image', [
-                    'label' => 'Obraz tła',
-                    'return_format' => 'id',
-                    'preview_size' => 'medium',
-                ])
-                ->addRepeater('add_column', [
-                    'label' => 'Kolumny',
-                    'instructions' => 'Add columns with content',
-                    'layout' => 'block',
-                    'button_label' => 'Dodaj kolumnę',
-                ])
-                    ->addText('title', [
-                        'label' => 'Tytuł',
-                    ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Opis',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                    ->addImage('image', [
-                        'label' => 'Logo',
-                        'return_format' => 'id',
-                        'preview_size' => 'thumbnail',
-                    ])
-                ->endRepeater()
-            ->endGroup()
-
-            // Zobacz Jak Section
-            ->addTab('zobacz_jak', [
-                'label' => 'Zobacz Jak',
-            ])
-            ->addGroup('zobacz_jak', [
-                'label' => 'Zobacz Jak Configuration',
-            ])
-                ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addSelect('source_type', [
-                    'label' => 'Źródło danych',
-                    'instructions' => 'Wybierz czy chcesz wyświetlić case studies z CPT czy dodać manualnie',
-                    'choices' => [
-                        'cpt' => 'Case Studies (CPT)',
-                        'manual' => 'Manualne wprowadzenie',
-                    ],
-                    'default_value' => 'cpt',
-                    'ui' => 1,
-                    'return_format' => 'value',
-                ])
-                ->addRelationship('case_studies', [
-                    'label' => 'Wybierz Case Studies',
-                    'instructions' => 'Wybierz case studies do wyświetlenia',
-                    'post_type' => ['case_studies'],
-                    'filters' => ['search'],
-                    'return_format' => 'id',
-                    'conditional_logic' => [
-                        [
-                            [
-                                'field' => 'zobacz_jak_source_type',
-                                'operator' => '==',
-                                'value' => 'cpt',
-                            ],
-                        ],
-                    ],
-                ])
-                ->addRepeater('manual_case_studies', [
-                    'label' => 'Case Studies',
-                    'instructions' => 'Dodaj case studies manualnie',
-                    'layout' => 'block',
-                    'button_label' => 'Dodaj Case Study',
-                    'conditional_logic' => [
-                        [
-                            [
-                                'field' => 'zobacz_jak_source_type',
-                                'operator' => '==',
-                                'value' => 'manual',
-                            ],
-                        ],
-                    ],
-                ])
-                    ->addImage('image', [
-                        'label' => 'Obraz',
-                        'return_format' => 'id',
-                        'preview_size' => 'medium',
-                    ])
-                    ->addText('title', [
-                        'label' => 'Tytuł',
-                    ])
-                    ->addText('nazwa_firmy', [
-                        'label' => 'Nazwa firmy',
-                    ])
-                    ->addImage('logo_firmy', [
-                        'label' => 'Logo firmy',
-                        'return_format' => 'url',
-                        'preview_size' => 'thumbnail',
-                    ])
-                    ->addRepeater('dodaj_blok_tekstowy', [
-                        'label' => 'Bloki tekstowe',
-                        'instructions' => 'Dodaj bloki tekstowe',
-                        'layout' => 'block',
-                        'button_label' => 'Dodaj blok',
-                    ])
-                        ->addWysiwyg('title', [
-                            'label' => 'Tytuł',
-                            'toolbar' => 'full',
-                            'media_upload' => 0,
-                        ])
-                        ->addWysiwyg('description', [
-                            'label' => 'Opis',
-                            'toolbar' => 'full',
-                            'media_upload' => 0,
-                        ])
-                    ->endRepeater()
-                ->endRepeater()
-            ->endGroup()
-
-            // Testimonials (Opinie) Section
-            ->addTab('opinie', [
-                'label' => 'Opinie',
-            ])
-            ->addGroup('opinie', [
-                'label' => 'Opinie Configuration',
-            ])
-                ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
-                    'toolbar' => 'full',
-                    'media_upload' => 0,
-                ])
-                ->addFile('video', [
-                    'label' => 'Video',
-                    'instructions' => 'Upload video file',
-                    'return_format' => 'array',
-                    'library' => 'all',
-                    'mime_types' => 'mp4,webm,ogg',
-                ])
-                ->addImage('poster', [
-                    'label' => 'Poster video / Obraz',
-                    'instructions' => 'Poster for video or image if no video',
-                    'return_format' => 'id',
-                    'preview_size' => 'medium',
-                ])
-                ->addRepeater('add_testimonial', [
-                    'label' => 'Opinie',
-                    'instructions' => 'Dodaj opinie',
-                    'layout' => 'block',
-                    'button_label' => 'Dodaj opinię',
-                ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Opinia (tekst)',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                    ->addText('author', [
-                        'label' => 'Autor',
-                    ])
-                ->endRepeater()
-            ->endGroup()
-
-            // Contact Section
-            ->addTab('contact', [
-                'label' => 'Kontakt',
-            ])
-            ->addGroup('contact', [
-                'label' => 'Contact Configuration',
-            ])
-                ->addWysiwyg('title', [
-                    'label' => 'Tytuł',
+                    'label' => 'Title',
                     'toolbar' => 'full',
                     'media_upload' => 0,
                 ])
                 ->addWysiwyg('description', [
-                    'label' => 'Opis',
+                    'label' => 'Description',
                     'toolbar' => 'full',
                     'media_upload' => 0,
                 ])
-                ->addImage('contact_person_image', [
-                    'label' => 'Zdjęcie osoby kontaktowej',
+                ->addLink('button', [
+                    'label' => 'Button',
+                    'return_format' => 'array',
+                ])
+                ->addRepeater('add_services', [
+                    'label' => 'Services',
+                    'instructions' => 'Add services',
+                    'layout' => 'block',
+                    'button_label' => 'Add Service',
+                ])
+                    ->addImage('image', [
+                        'label' => 'Icon',
+                        'instructions' => 'Service icon',
+                        'return_format' => 'id',
+                        'preview_size' => 'thumbnail',
+                    ])
+                    ->addWysiwyg('text', [
+                        'label' => 'Text',
+                        'toolbar' => 'full',
+                        'media_upload' => 0,
+                    ])
+                ->endRepeater()
+            ->endGroup()
+
+            // Mówią o nas (Testimonials) Section
+            ->addTab('testimonials', [
+                'label' => 'Mówią o nas',
+            ])
+            ->addGroup('testimonials', [
+                'label' => 'Testimonials Section',
+            ])
+                ->addRepeater('add_testimonial', [
+                    'label' => 'Testimonials',
+                    'instructions' => 'Add testimonials',
+                    'layout' => 'block',
+                    'button_label' => 'Add Testimonial',
+                ])
+                    ->addWysiwyg('author', [
+                        'label' => 'Author',
+                        'toolbar' => 'full',
+                        'media_upload' => 0,
+                    ])
+                    ->addWysiwyg('description', [
+                        'label' => 'Description',
+                        'toolbar' => 'full',
+                        'media_upload' => 0,
+                    ])
+                ->endRepeater()
+            ->endGroup()
+
+            // MSIT Section
+            ->addTab('msit', [
+                'label' => 'MSIT',
+            ])
+            ->addGroup('msit', [
+                'label' => 'MSIT Section',
+            ])
+                ->addText('badge', [
+                    'label' => 'Badge',
+                ])
+                ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ])
+                ->addImage('image', [
+                    'label' => 'Image',
                     'return_format' => 'id',
                     'preview_size' => 'medium',
                 ])
-                ->addText('text_before_phone', [
-                    'label' => 'Tekst przed numerem telefonu',
-                    'placeholder' => 'np. Zadzwoń do nas:',
+            ->endGroup()
+
+            // Our Materiały Section
+            ->addTab('our_materialy', [
+                'label' => 'Our Materiały',
+            ])
+            ->addGroup('our_materialy', [
+                'label' => 'Our Materiały Section',
+            ])
+                ->addRepeater('add_material', [
+                    'label' => 'Materials',
+                    'instructions' => 'Add materials',
+                    'layout' => 'block',
+                    'button_label' => 'Add Material',
                 ])
-                ->addText('phone_number', [
-                    'label' => 'Numer telefonu',
-                    'placeholder' => '+48 123 456 789',
+                    ->addText('title', [
+                        'label' => 'Title',
+                    ])
+                    ->addWysiwyg('description', [
+                        'label' => 'Description',
+                        'toolbar' => 'full',
+                        'media_upload' => 0,
+                    ])
+                    ->addLink('button', [
+                        'label' => 'Button',
+                        'return_format' => 'array',
+                    ])
+                    ->addImage('image', [
+                        'label' => 'Image',
+                        'return_format' => 'id',
+                        'preview_size' => 'medium',
+                    ])
+                ->endRepeater()
+            ->endGroup()
+
+            // How It Works Section
+            ->addTab('how_it_works', [
+                'label' => 'How It Works',
+            ])
+            ->addGroup('how_it_works', [
+                'label' => 'How It Works Section',
+            ])
+                    ->addPartial(HowItWorks::class)
+            ->endGroup()
+
+            // Partnerzy Section
+            ->addTab('partnerzy', [
+                'label' => 'Partnerzy',
+            ])
+            ->addGroup('partnerzy', [
+                'label' => 'Partnerzy Section',
+            ])
+                ->addRepeater('add_image', [
+                    'label' => 'Partners',
+                    'instructions' => 'Add partner logos',
+                    'layout' => 'block',
+                    'button_label' => 'Add Partner',
                 ])
-                ->addText('cf7_shortcode', [
-                    'label' => 'Contact Form 7 Shortcode',
-                    'instructions' => 'Wklej shortcode formularza (np. [contact-form-7 id="123"])',
-                    'placeholder' => '[contact-form-7 id="123"]',
-                ])
+                    ->addImage('image', [
+                        'label' => 'Image',
+                        'return_format' => 'id',
+                        'preview_size' => 'medium',
+                    ])
+                ->endRepeater()
             ->endGroup();
 
         return $builder->build();

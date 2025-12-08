@@ -4,22 +4,25 @@
   {{-- Hero Section --}}
   @include('sections.home.hero')
 
-  {{-- About Us Section --}}
-  @include('sections.home.about-us')
+  {{-- Aktualności Section --}}
+  @include('sections.home.aktualnosci')
 
-  {{-- Rozwiązania Section --}}
-  @include('sections.home.rozwiazania')
+  {{-- O nas Section --}}
+  @include('sections.home.o-nas')
 
-  {{-- Standardy Section --}}
-  @include('sections.home.standardy')
+  {{-- Testimonials Section --}}
+  @include('sections.home.testimonials')
 
-  {{-- Zobacz Jak Section --}}
-  @include('sections.home.zobacz-jak')
+  {{-- MSIT Section --}}
+  @include('sections.home.msit')
 
-  {{-- Opinie Section --}}
-  @include('sections.home.opinie')
+  {{-- Our Materiały Section --}}
+  @include('sections.home.our-materialy')
 
-  {{-- Contact Section --}}
-  @include('sections.home.contact')
+  {{-- How It Works Section --}}
+  @include('sections.home.how-it-works')
+
+  {{-- Partnerzy Section --}}
+  @include('sections.home.partnerzy')
 
 @endsection
