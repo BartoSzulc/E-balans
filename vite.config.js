@@ -35,7 +35,7 @@ export default defineConfig({
    * Public base path when served in production
    * IMPORTANT: Update 'Quartz' to match your theme folder name
    */
-  base: '/wp-content/themes/LogoTape/public/build/',
+  base: '/wp-content/themes/E-balans/public/build/',
 
   /**
    * ─────────────────────────────────────────────────────────────────────────

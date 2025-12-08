@@ -4,6 +4,8 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Builder;
 use Log1x\AcfComposer\Field;
+use App\Fields\Partials\HowItWorks;
+
 
 class Home extends Field
 {
@@ -226,7 +228,7 @@ class Home extends Field
             ->addGroup('how_it_works', [
                 'label' => 'How It Works Section',
             ])
-                ->addPartial(new \App\Fields\Partials\HowItWorks())
+                    ->addPartial(HowItWorks::class)
             ->endGroup()
 
             // Partnerzy Section

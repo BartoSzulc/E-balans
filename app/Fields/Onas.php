@@ -4,6 +4,7 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Builder;
 use Log1x\AcfComposer\Field;
+use App\Fields\Partials\HowItWorks;
 
 class Onas extends Field
 {
@@ -109,7 +110,7 @@ class Onas extends Field
                 ->addLayout('how_it_works', [
                     'label' => 'How It Works Section',
                 ])
-                    ->addPartial(new \App\Fields\Partials\HowItWorks())
+                    ->addPartial(HowItWorks::class)
 
                 // CTA Layout
                 ->addLayout('cta', [
