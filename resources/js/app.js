@@ -31,7 +31,7 @@ import {
 const images = import.meta.glob(['../images/**', '../fonts/**']);
 // async function setupMap() {
 //   try {
-//     await loadGoogleMapsAPI('AIzaSyD1xapQrIT1MyrUurS1NZ8FuBkWbZA25cs');
+//     await loadGoogleMapsAPI('');
 //     const mapInstance = initGoogleMap({
 //       containerId: 'map',
 //       lat: 53.709064,
