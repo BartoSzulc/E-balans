@@ -1,39 +1,40 @@
 @php
-  $layout = $layout ?? [];
+  // Support both flexible content ($layout passed as $data) and standard fields
+  $cta = $data ?? $layout ?? [];
 @endphp
 
 <section class="cta-section">
   <div class="container mx-auto">
     <div class="cta-wrapper">
       <div class="cta-content">
-        @if(!empty($layout['title']))
+        @if(!empty($cta['title']))
           <h2 class="cta-title text-h2">
-            {!! $layout['title'] !!}
+            {!! $cta['title'] !!}
           </h2>
         @endif
 
-        @if(!empty($layout['description']))
+        @if(!empty($cta['description']))
           <div class="cta-description text-body">
-            {!! $layout['description'] !!}
+            {!! $cta['description'] !!}
           </div>
         @endif
 
-        @if(!empty($layout['link']))
+        @if(!empty($cta['link']))
           <div class="cta-button">
             <a
-              href="{{ $layout['link']['url'] }}"
+              href="{{ $cta['link']['url'] }}"
               class="button"
-              @if(!empty($layout['link']['target'])) target="{{ $layout['link']['target'] }}" @endif
+              @if(!empty($cta['link']['target'])) target="{{ $cta['link']['target'] }}" @endif
             >
-              {{ $layout['link']['title'] }}
+              {{ $cta['link']['title'] }}
             </a>
           </div>
         @endif
       </div>
 
-      @if(!empty($layout['image']))
+      @if(!empty($cta['image']))
         <div class="cta-image">
-          {!! wp_get_attachment_image($layout['image'], 'large') !!}
+          {!! wp_get_attachment_image($cta['image'], 'large') !!}
         </div>
       @endif
     </div>

@@ -1,27 +1,28 @@
 @php
-  $layout = $layout ?? [];
-  $imageLeft = !empty($layout['image_left']);
+  // Support both flexible content ($layout passed as $data) and standard fields
+  $text_image = $data ?? $layout ?? [];
+  $imageLeft = !empty($text_image['image_left']);
 @endphp
 
 <section class="text-image-section">
   <div class="container mx-auto">
     <div class="text-image-wrapper {{ $imageLeft ? 'image-left' : 'image-right' }}">
-      @if(!empty($layout['image']))
+      @if(!empty($text_image['image']))
         <div class="text-image-image">
-          {!! wp_get_attachment_image($layout['image'], 'large') !!}
+          {!! wp_get_attachment_image($text_image['image'], 'large') !!}
         </div>
       @endif
 
       <div class="text-image-content">
-        @if(!empty($layout['title']))
+        @if(!empty($text_image['title']))
           <h2 class="section-title text-h2">
-            {!! $layout['title'] !!}
+            {!! $text_image['title'] !!}
           </h2>
         @endif
 
-        @if(!empty($layout['description']))
+        @if(!empty($text_image['description']))
           <div class="section-description text-body">
-            {!! $layout['description'] !!}
+            {!! $text_image['description'] !!}
           </div>
         @endif
       </div>

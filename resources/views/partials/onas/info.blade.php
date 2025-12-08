@@ -1,24 +1,25 @@
 @php
-  $layout = $layout ?? [];
+  // Support both flexible content ($layout passed as $data) and standard fields
+  $info = $data ?? $layout ?? [];
 @endphp
 
 <section class="info-section">
   <div class="container mx-auto">
-    @if(!empty($layout['title']))
+    @if(!empty($info['title']))
       <h2 class="section-title text-h2">
-        {!! $layout['title'] !!}
+        {!! $info['title'] !!}
       </h2>
     @endif
 
-    @if(!empty($layout['description']))
+    @if(!empty($info['description']))
       <div class="section-description text-body">
-        {!! $layout['description'] !!}
+        {!! $info['description'] !!}
       </div>
     @endif
 
-    @if(!empty($layout['add_columns']))
+    @if(!empty($info['add_columns']))
       <div class="columns-grid">
-        @foreach($layout['add_columns'] as $column)
+        @foreach($info['add_columns'] as $column)
           <div class="column-item">
             @if(!empty($column['icon']))
               <div class="column-icon">

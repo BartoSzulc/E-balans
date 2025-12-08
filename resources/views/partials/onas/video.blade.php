@@ -1,12 +1,13 @@
 @php
-  $layout = $layout ?? [];
+  // Support both flexible content ($layout passed as $data) and standard fields
+  $video = $data ?? $layout ?? [];
 
   // Extract video ID from YouTube or Vimeo URL
   $videoId = null;
   $videoType = null;
 
-  if (!empty($layout['video_url'])) {
-    $url = $layout['video_url'];
+  if (!empty($video['video_url'])) {
+    $url = $video['video_url'];
 
     // YouTube
     if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $matches)) {
@@ -26,9 +27,9 @@
 
 <section class="video-section">
   <div class="container mx-auto">
-    @if(!empty($layout['title']))
+    @if(!empty($video['title']))
       <h2 class="section-title text-h2">
-        {!! $layout['title'] !!}
+        {!! $video['title'] !!}
       </h2>
     @endif
 
@@ -52,9 +53,9 @@
           ></iframe>
         @endif
       </div>
-    @elseif(!empty($layout['poster']))
+    @elseif(!empty($video['poster']))
       <div class="video-poster">
-        {!! wp_get_attachment_image($layout['poster'], 'large') !!}
+        {!! wp_get_attachment_image($video['poster'], 'large') !!}
       </div>
     @endif
   </div>

@@ -1,1 +1,2 @@
-@include('partials.how-it-works', ['field_name' => 'how_it_works'])
+{{-- Reusable partial - uses get_field('how_it_works') automatically --}}
+@include('partials.how-it-works')
