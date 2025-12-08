@@ -23,7 +23,7 @@
  * 3. USAGE IN HTML
  *    Variables can be used via Tailwind utility classes:
  *    - text-h1         → var(--text-h1) with line-height and font-weight
- *    - text-color-1    → var(--color-color-1)
+ *    - bg-color-1      → var(--color-color-1)
  *    - rounded-40      → var(--radius-40)
  *    - font-primary    → var(--font-primary)
  *
@@ -95,13 +95,13 @@
     /* ────────────────────────────────────────────────────────────────────
      * COLOR PALETTE (From Figma Design Tokens)
      * ────────────────────────────────────────────────────────────────────
-     * Usage: bg-black, text-czerwony, border-niebieski, etc.
+     * Usage: bg-color-1, text-color-2, border-color-3, etc.
      */
-    --color-black: #4e4e4e;        /* Black/Dark Gray */
-    --color-czerwony: #e52f3d;     /* Red (Czerwony) */
-    --color-niebieski: #124797;    /* Blue (Niebieski) */
-    --color-zolty: #edb903;        /* Yellow (Żółty) */
-    --color-white: #ffffff;        /* White */
+    --color-color-1: #4e4e4e;      /* Black/Dark Gray */
+    --color-color-2: #e52f3d;      /* Red (Czerwony) */
+    --color-color-3: #124797;      /* Blue (Niebieski) */
+    --color-color-4: #edb903;      /* Yellow (Żółty) */
+    --color-color-5: #ffffff;      /* White */
 
     /* ────────────────────────────────────────────────────────────────────
      * SPACING SYSTEM
