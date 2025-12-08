@@ -29,19 +29,19 @@ import {
 } from './components/googleMap.js';
 
 const images = import.meta.glob(['../images/**', '../fonts/**']);
-async function setupMap() {
-  try {
-    await loadGoogleMapsAPI('AIzaSyD1xapQrIT1MyrUurS1NZ8FuBkWbZA25cs');
-    const mapInstance = initGoogleMap({
-      containerId: 'map',
-      lat: 53.709064,
-      lng: 17.573389,
-    });
-    console.log('Map ready:', mapInstance);
-  } catch (error) {
-    console.error('Map setup failed:', error);
-  }
-}
+// async function setupMap() {
+//   try {
+//     await loadGoogleMapsAPI('AIzaSyD1xapQrIT1MyrUurS1NZ8FuBkWbZA25cs');
+//     const mapInstance = initGoogleMap({
+//       containerId: 'map',
+//       lat: 53.709064,
+//       lng: 17.573389,
+//     });
+//     console.log('Map ready:', mapInstance);
+//   } catch (error) {
+//     console.error('Map setup failed:', error);
+//   }
+// }
 domReady(async () => {
   window.Alpine = Alpine;
   Alpine.start();
