@@ -7,63 +7,21 @@
     <section class="bg-white footer__inside py-30 lg:pt-120 lg:pb-115">
         <div class="container">
             <div class="grid grid-12">
-                <div class="flex flex-col justify-center gap-20 col-span-full lg:col-span-2 lg:gap-30">
+                <div class="flex flex-col justify-center gap-20 col-span-full lg:col-span-4 lg:gap-30">
                     <a class="brand" href="{{ home_url('/') }}">
-                        <div class="h-79">
-                            <img src="@asset('resources/images/icons/logo.svg')" alt="E-balans Logo" class="size-full">
+                        <div class="h-40">
+                            <img src="@asset('resources/images/logo.ong')" alt="E-balans Logo" class="size-full">
                         </div>
+                        <x-fas-cloud/>
+
                     </a>
                 </div>
-                <div
-                    class="lg:ml-73 grid grid-cols-1 col-span-full lg:col-span-10 lg:gap-x-39 gap-y-30 lg:grid-cols-[repeat(4,_minmax(1.66145833rem,1.66145833rem))]">
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>Znajdź nas</p>
-                        </div>
-                        {!! $footer['footer_text'] ?? '' !!}
-                    </div>
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>{{ wp_get_nav_menu_name('secondary_navigation') }}</p>
-                        </div>
-                        @if (has_nav_menu('secondary_navigation'))
-                            <nav class="secondary_navigation "
-                                aria-label="{{ wp_get_nav_menu_name('secondary_navigation') }}">
-                                {!! wp_nav_menu([
-                                    'theme_location' => 'secondary_navigation',
-                                    'menu_class' => 'nav space-y-16',
-                                    'add_li_class' => ' transition-all duration-500 ease-in-out',
-                                    'echo' => false,
-                                ]) !!}
-                            </nav>
-                        @endif
-                    </div>
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>{{ wp_get_nav_menu_name('third_navigation') }}</p>
-                        </div>
-                        @if (has_nav_menu('third_navigation'))
-                            <nav class="third_navigation " aria-label="{{ wp_get_nav_menu_name('third_navigation') }}">
-                                {!! wp_nav_menu([
-                                    'theme_location' => 'third_navigation',
-                                    'menu_class' => 'nav space-y-16',
-                                    'add_li_class' => ' transition-all duration-500 ease-in-out',
-                                    'echo' => false,
-                                ]) !!}
-                            </nav>
-                        @endif
-                    </div>
-                    <div class="col-span-1 max-lg:text-center space-y-18">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>Sprawdź więcej</p>
-                        </div>
-                        <x-socials :socials="$socials" />
-                    </div>
-                </div>
+
             </div>
         </div>
+
     </section>
-    <div class="copy bg-tlo bg-color-4">
+    <div class="copy bg-tlo bg-color-3">
         <div class="container relative z-10">
             <div class="flex items-center justify-between py-20">
                 <div class="flex items-center gap-10">

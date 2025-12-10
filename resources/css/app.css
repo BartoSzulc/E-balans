@@ -28,7 +28,7 @@
  * 3. USAGE IN HTML
  *    Variables can be used via Tailwind utility classes:
  *    - text-h1         → var(--text-h1) with line-height and font-weight
- *    - text-color-1    → var(--color-color-1)
+ *    - bg-color-1      → var(--color-color-1)
  *    - rounded-40      → var(--radius-40)
  *    - font-primary    → var(--font-primary)
  *
@@ -72,8 +72,8 @@
    * Custom fonts are loaded in components/_fonts.scss
    * Usage: font-primary, font-secondary
    */
-  --font-primary: "Gantari", sans-serif;
-  --font-secondary: "Sansita", sans-serif;
+  --font-primary: "Nunito", sans-serif;
+  --font-secondary: "Nunito", sans-serif;
   /* ────────────────────────────────────────────────────────────────────
    * BREAKPOINTS
    * ────────────────────────────────────────────────────────────────────  */
@@ -83,10 +83,10 @@
    * ────────────────────────────────────────────────────────────────────
    * Usage: bg-color-1, text-color-2, border-color-3, etc.
    */
-  --color-color-1: #002234; /* Dark Navy/Blue */
-  --color-color-2: #66b0c0; /* Teal/Cyan */
-  --color-color-3: #c2f970; /* Lime Green */
-  --color-color-4: #e5e9eb; /* Light Gray */
+  --color-color-1: #4e4e4e; /* Black/Dark Gray */
+  --color-color-2: #e52f3d; /* Red (Czerwony) */
+  --color-color-3: #124797; /* Blue (Niebieski) */
+  --color-color-4: #edb903; /* Yellow (Żółty) */
   --color-color-5: #ffffff; /* White */
   /* ────────────────────────────────────────────────────────────────────
    * SPACING SYSTEM
@@ -144,24 +144,35 @@
    * OR use Tailwind utilities: text-h1, text-h2, etc.
    */
   /* Heading Styles (From Figma Design Tokens) */
-  --text-h1: 0.3229166667rem; /* 62px at 1920px viewport */
-  --text-h1--line-height: 0.3333333333rem;
-  --text-h1--font-weight: 600; /* Semi-Bold */
-  --text-h2: 0.25rem; /* 48px at 1920px viewport */
-  --text-h2--line-height: 0.3229166667rem;
-  --text-h2--font-weight: 600; /* Semi-Bold */
-  --text-h3: 0.1979166667rem; /* 38px at 1920px viewport */
-  --text-h3--line-height: 0.2291666667rem;
-  --text-h3--font-weight: 600; /* Semi-Bold */
-  --text-h4: 0.1458333333rem; /* 28px at 1920px viewport */
-  --text-h4--line-height: 0.1875rem;
-  --text-h4--font-weight: 600; /* Semi-Bold */
-  --text-h5: 0.1145833333rem; /* 22px at 1920px viewport */
-  --text-h5--line-height: 0.15625rem;
-  --text-h5--font-weight: 600; /* Semi-Bold */
+  --text-h1: 0.2552083333rem; /* 49px at 1920px viewport */
+  --text-h1--line-height: 0.30625rem;
+  --text-h1--font-weight: 700; /* Bold */
+  --text-h2: 0.203125rem; /* 39px at 1920px viewport */
+  --text-h2--line-height: 0.24375rem;
+  --text-h2--font-weight: 700; /* Bold */
+  --text-h3: 0.1614583333rem; /* 31px at 1920px viewport */
+  --text-h3--line-height: 0.19375rem;
+  --text-h3--font-weight: 700; /* Bold */
+  --text-h4: 0.1302083333rem; /* 25px at 1920px viewport */
+  --text-h4--line-height: 0.15625rem;
+  --text-h4--font-weight: 700; /* Bold */
+  --text-h5: 0.1041666667rem; /* 20px at 1920px viewport */
+  --text-h5--line-height: 0.125rem;
+  --text-h5--font-weight: 700; /* Bold */
   /* Body Text Styles (From Figma Design Tokens) */
+  --text-body: 0.0833333333rem; /* 16px at 1920px viewport */
+  --text-body--line-height: 0.1166666667rem;
+  --text-body--font-weight: 400;
+  --text-small: 0.0677083333rem; /* 13px at 1920px viewport */
+  --text-small--line-height: 0.08125rem;
+  --text-small--font-weight: 400;
+  --text-quote: 0.0833333333rem; /* 16px at 1920px viewport */
+  --text-quote--line-height: 0.1166666667rem;
+  --text-quote--font-weight: 400;
+  --text-quote--font-style: italic;
+  /* Legacy sizes for compatibility */
   --text-16: 0.0833333333rem; /* 16px at 1920px viewport */
-  --text-16--line-height: 0.125rem;
+  --text-16--line-height: 0.1166666667rem;
   --text-16--font-weight: 400;
   --text-18: 0.09375rem; /* 18px at 1920px viewport */
   --text-18--line-height: 0.1354166667rem;
@@ -276,23 +287,33 @@
     --radius-4: 0.125rem; /* 4px at 1920px viewport */
     --radius-2: 0.0625rem; /* 2px at 1920px viewport */
     --radius-1: 0.03125rem; /* 1px at 1920px viewport */
-    --text-h1: 1.5rem; /* Smaller on mobile */
-    --text-h1--line-height: 1.625rem;
-    --text-h1--font-weight: 600; /* Semi-Bold */
-    --text-h2: 1.1875rem;
-    --text-h2--line-height: 1.375rem;
-    --text-h2--font-weight: 600; /* Semi-Bold */
-    --text-h3: 0.875rem;
-    --text-h3--line-height: 1.0625rem;
-    --text-h3--font-weight: 600; /* Semi-Bold */
-    --text-h4: 0.75rem;
-    --text-h4--line-height: 0.9375rem;
-    --text-h4--font-weight: 600; /* Semi-Bold */
+    --text-h1: 1.25rem; /* Smaller on mobile */
+    --text-h1--line-height: 1.5rem;
+    --text-h1--font-weight: 700; /* Bold */
+    --text-h2: 1rem;
+    --text-h2--line-height: 1.1875rem;
+    --text-h2--font-weight: 700; /* Bold */
+    --text-h3: 0.8125rem;
+    --text-h3--line-height: 0.96875rem;
+    --text-h3--font-weight: 700; /* Bold */
+    --text-h4: 0.65625rem;
+    --text-h4--line-height: 0.78125rem;
+    --text-h4--font-weight: 700; /* Bold */
     --text-h5: 0.5625rem;
-    --text-h5--line-height: 0.75rem;
-    --text-h5--font-weight: 600; /* Semi-Bold */
+    --text-h5--line-height: 0.6875rem;
+    --text-h5--font-weight: 700; /* Bold */
+    --text-body: 0.5rem;
+    --text-body--line-height: 0.7rem;
+    --text-body--font-weight: 400;
+    --text-small: 0.40625rem;
+    --text-small--line-height: 0.4875rem;
+    --text-small--font-weight: 400;
+    --text-quote: 0.5rem;
+    --text-quote--line-height: 0.7rem;
+    --text-quote--font-weight: 400;
+    --text-quote--font-style: italic;
     --text-16: 0.5rem;
-    --text-16--line-height: 0.75rem;
+    --text-16--line-height: 0.7rem;
     --text-16--font-weight: 400;
     --text-18: 0.5625rem;
     --text-18--line-height: 0.8125rem;
@@ -2050,18 +2071,18 @@ body {
 }
 
 .container {
-  max-width: 9.7708333333rem;
-  @apply mx-auto px-24;
+  max-width: 7.8125rem;
+  @apply mx-auto px-30;
 }
 @media (max-width: 1023px) {
   .container {
-    max-width: 22.5rem;
+    max-width: 46.875rem;
     @apply px-15;
   }
 }
 
 .max-w-container {
-  max-width: 9.7708333333rem;
+  max-width: 7.8125rem;
   @apply ml-auto max-lg:max-w-full;
 }
 
