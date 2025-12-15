@@ -5,97 +5,99 @@
 @endphp
 
 <footer class="relative footer">
-    <section class="bg-white footer__inside py-30 lg:pt-120 lg:pb-115">
+    <section class="bg-color-5 footer__inside py-40 lg:py-60">
         <div class="container">
-            <div class="grid grid-12">
-                <div class="flex flex-col justify-center gap-20 col-span-full lg:col-span-4 lg:gap-30">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-40 lg:gap-60">
+                {{-- Logo Column --}}
+                <div class="col-span-1 lg:col-span-3 flex flex-col gap-20 max-lg:items-center">
                     <a class="brand" href="{{ home_url('/') }}">
-                        <div class="h-40">
-                            <img src="@asset('resources/images/logo.ong')" alt="E-balans Logo" class="size-full">
-                        </div>
-                        <x-fas-cloud/>
-
+                        <img src="@asset('resources/images/logo.png')" alt="E-balans Logo" class="h-40 w-auto">
                     </a>
                 </div>
-                <div
-                    class="lg:ml-73 grid grid-cols-1 col-span-full lg:col-span-8 lg:gap-x-39 gap-y-30 lg:grid-cols-[repeat(4,_minmax(1.66145833rem,1.66145833rem))]">
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>Znajdź nas</p>
-                        </div>
-                        @if(!empty($footer['footer_text']))
-                            <div class="footer-text">
-                                {!! $footer['footer_text'] !!}
-                            </div>
-                        @endif
 
-                        @if(!empty($contact_info))
-                            <div class="contact-info space-y-12 mt-20">
-                                @foreach($contact_info as $contact)
-                                    @if(!empty($contact['text']))
-                                        <div class="contact-item flex items-center gap-10 max-lg:justify-center">
-                                            @if(!empty($contact['icon']))
-                                                @php
-                                                    $iconComponent = 'fas-' . $contact['icon'];
-                                                @endphp
-                                                <div class="icon text-color-2">
-                                                    <x-dynamic-component :component="$iconComponent" class="w-16 h-16" />
-                                                </div>
-                                            @endif
-                                            @if(!empty($contact['link']))
-                                                <a href="{{ $contact['link'] }}" class="text-base hover:text-color-2 transition-colors duration-300">
-                                                    {{ $contact['text'] }}
-                                                </a>
-                                            @else
-                                                <span class="text-base">{{ $contact['text'] }}</span>
-                                            @endif
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @endif
-                    </div>
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>{{ wp_get_nav_menu_name('secondary_navigation') }}</p>
+                {{-- Materiały Column --}}
+                <div class="col-span-1 lg:col-span-2 space-y-20 max-lg:text-center">
+                    <h3 class="text-h5 font-bold text-color-1">
+                        {{ wp_get_nav_menu_name('secondary_navigation') }}
+                    </h3>
+                    @if (has_nav_menu('secondary_navigation'))
+                        <nav class="secondary_navigation" aria-label="{{ wp_get_nav_menu_name('secondary_navigation') }}">
+                            {!! wp_nav_menu([
+                                'theme_location' => 'secondary_navigation',
+                                'menu_class' => 'nav space-y-12',
+                                'add_li_class' => 'text-base text-color-1 hover:text-color-2 transition-colors duration-300',
+                                'echo' => false,
+                            ]) !!}
+                        </nav>
+                    @endif
+                </div>
+
+                {{-- O nas Column --}}
+                <div class="col-span-1 lg:col-span-2 space-y-20 max-lg:text-center">
+                    <h3 class="text-h5 font-bold text-color-1">
+                        {{ wp_get_nav_menu_name('third_navigation') }}
+                    </h3>
+                    @if (has_nav_menu('third_navigation'))
+                        <nav class="third_navigation" aria-label="{{ wp_get_nav_menu_name('third_navigation') }}">
+                            {!! wp_nav_menu([
+                                'theme_location' => 'third_navigation',
+                                'menu_class' => 'nav space-y-12',
+                                'add_li_class' => 'text-base text-color-1 hover:text-color-2 transition-colors duration-300',
+                                'echo' => false,
+                            ]) !!}
+                        </nav>
+                    @endif
+                </div>
+
+                {{-- Contact & Social Column --}}
+                <div class="col-span-1 lg:col-span-5 space-y-30 max-lg:text-center">
+                    {{-- Contact Info --}}
+                    @if(!empty($contact_info))
+                        <div class="contact-info space-y-16">
+                            @foreach($contact_info as $contact)
+                                @if(!empty($contact['text']))
+                                    <div class="contact-item flex items-center gap-12 max-lg:justify-center">
+                                        @if(!empty($contact['icon']))
+                                            @php
+                                                $iconComponent = 'fas-' . $contact['icon'];
+                                            @endphp
+                                            <div class="icon-wrapper flex items-center justify-center w-32 h-32 rounded-full bg-color-2 shrink-0">
+                                                <x-dynamic-component :component="$iconComponent" class="w-16 h-16 text-white" />
+                                            </div>
+                                        @endif
+                                        @if(!empty($contact['link']))
+                                            <a href="{{ $contact['link'] }}" class="text-base text-color-1 hover:text-color-2 transition-colors duration-300">
+                                                {{ $contact['text'] }}
+                                            </a>
+                                        @else
+                                            <span class="text-base text-color-1">{{ $contact['text'] }}</span>
+                                        @endif
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                        @if (has_nav_menu('secondary_navigation'))
-                            <nav class="secondary_navigation "
-                                aria-label="{{ wp_get_nav_menu_name('secondary_navigation') }}">
-                                {!! wp_nav_menu([
-                                    'theme_location' => 'secondary_navigation',
-                                    'menu_class' => 'nav space-y-16',
-                                    'add_li_class' => ' transition-all duration-500 ease-in-out',
-                                    'echo' => false,
-                                ]) !!}
-                            </nav>
-                        @endif
-                    </div>
-                    <div class="col-span-1 space-y-16 max-lg:text-center">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>{{ wp_get_nav_menu_name('third_navigation') }}</p>
+                    @endif
+
+                    {{-- Social Icons --}}
+                    @if(!empty($socials))
+                        <div class="socials-wrapper flex gap-16 max-lg:justify-center">
+                            @foreach($socials as $social)
+                                @if(!empty($social['icon']) && !empty($social['link']))
+                                    <a href="{{ $social['link'] }}" target="_blank"
+                                       class="social-icon flex items-center justify-center w-44 h-44 rounded-full bg-color-2 hover:bg-color-3 transition-all duration-300"
+                                       aria-label="{{ ucfirst(str_replace('-', ' ', $social['icon'])) }}">
+                                        @php
+                                            $iconComponent = 'fab-' . $social['icon'];
+                                        @endphp
+                                        <x-dynamic-component :component="$iconComponent" class="w-20 h-20 text-white" />
+                                    </a>
+                                @endif
+                            @endforeach
                         </div>
-                        @if (has_nav_menu('third_navigation'))
-                            <nav class="third_navigation " aria-label="{{ wp_get_nav_menu_name('third_navigation') }}">
-                                {!! wp_nav_menu([
-                                    'theme_location' => 'third_navigation',
-                                    'menu_class' => 'nav space-y-16',
-                                    'add_li_class' => ' transition-all duration-500 ease-in-out',
-                                    'echo' => false,
-                                ]) !!}
-                            </nav>
-                        @endif
-                    </div>
-                    <div class="col-span-1 max-lg:text-center space-y-18">
-                        <div class="text-h4 text-color-2 font-secondary">
-                            <p>Sprawdź więcej</p>
-                        </div>
-                        <x-socials :socials="$socials" />
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
-
     </section>
     <div class="copy bg-tlo bg-color-3">
         <div class="container relative z-10">
