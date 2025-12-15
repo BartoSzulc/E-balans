@@ -1,7 +1,7 @@
 @php
     $socials = get_field('socials', 'option');
     $footer = get_field('footer', 'option');
-    $contact_info = get_field('contact_info', 'option');
+    $contact_info = $footer['contact_info'] ?? [];
 @endphp
 
 <footer class="relative footer">
