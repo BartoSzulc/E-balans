@@ -7,24 +7,39 @@
 function removeSpaces($text) {
     return str_replace(' ', '', $text);
 }
-function acf_link($link, $class = '', $default = 'Learn More', $echo = true)
+function acf_link($link, $class = '', $default = 'Learn More', $echo = true, $aria_label = '')
 {
     if (empty($link) && !is_array($link)) {
         return false;
     }
 
     $link_title = !empty($link['title']) ? $link['title'] : $default;
+    $link_url = !empty($link['url']) ? $link['url'] : '#';
+    $link_target = !empty($link['target']) ? $link['target'] : '';
+
+    // Use custom aria-label, or fallback to link title for accessibility
+    $aria_text = !empty($aria_label) ? $aria_label : $link_title;
 
     $output = "<a ";
-    $output .= !empty($class) ? "class='{$class}'" : null;
-    $output .= "href='{$link['url']}'";
-    $output .= !empty($link['target']) ? "target='_blank'" : null;
+    $output .= !empty($class) ? "class='{$class}' " : '';
+    $output .= "href='{$link_url}'";
+
+    // Add accessibility attributes for external links
+    if (!empty($link_target) && $link_target === '_blank') {
+        $output .= " target='_blank'";
+        $output .= " rel='noopener noreferrer'";
+        $output .= " aria-label='{$aria_text} (opens in new window)'";
+    } else {
+        // Add aria-label for all links (WCAG 2.2)
+        $output .= " aria-label='{$aria_text}'";
+    }
+
     $output .= ">{$link_title}</a>";
 
     if ($echo) {
-        echo $output; // Use: acf_link($link, $class, $default, $echo);
+        echo $output; // Use: acf_link($link, $class, $default, $echo, $aria_label);
     } else {
-        return $output; // Use: $output = acf_link($link, $class, $default, $echo);
+        return $output; // Use: $output = acf_link($link, $class, $default, $echo, $aria_label);
     }
 }
 
@@ -49,7 +64,17 @@ function admin_log($log, $name = '_')
     file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
     // Use: admin_log($log, $name);
 }
-
+function placeholder($width = 1000, $height = null, $id = null) {
+    $height = $height ?? $width;
+    
+    $url = "https://picsum.photos/{$width}/{$height}";
+    
+    if ($id !== null) {
+        $url .= "?random={$id}";
+    }
+    
+    return $url;
+}
 function placehold_img($size = '150x150', $format = 'png', $text_color = '#fff', $bg_color = '#6d6d6d', $text = false)
 {
     $url = 'https://via.placeholder.com/' . $size . '.' . $format . '/' . $bg_color . '/' . $text_color ;
@@ -144,20 +169,20 @@ function add_custom_color_styles() {
     ?>
     <style type="text/css">
         /* Text color classes */
-        .text-color-2 { color: #5CE6DE !important; }
-        .text-color-3 { color: #0B284A !important; }
+        .text-color-2 { color: #E52F3D !important; }
+        .text-color-3 { color: #124797 !important; }
 
         
         .mce-i-color3-icon::before {
             content: "A";
-            background: #0B284A;
+            background: #124797;
             color: white;
             padding: 0 3px;
             border-radius: 3px;
         }
         .mce-i-color2-icon::before {
             content: "A";
-            background: #5CE6DE;
+            background: #E52F3D;
             color: white;
             padding: 0 3px;
             border-radius: 3px;
@@ -180,8 +205,8 @@ function add_custom_color_styles() {
 function add_frontend_custom_color_styles() {
     ?>
     <style type="text/css">
-        .text-color-3 { color: #0B284A !important; }
-        .text-color-2 { color: #5CE6DE !important; }
+        .text-color-3 { color: #124797 !important; }
+        .text-color-2 { color: #E52F3D !important; }
     </style>
     <?php
 }
@@ -194,7 +219,7 @@ function customize_tinymce_colors($init) {
     // Define custom colors
     $custom_colors = '
         "0B284A", "Text Color 3",
-        "5CE6DE", "Text Color 2"
+        "E52F3D", "Text Color 2"
     ';
     
     // Add custom colors to existing colors

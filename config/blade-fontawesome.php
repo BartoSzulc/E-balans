@@ -11,8 +11,8 @@ return [
         'class' => '',
 
         'attributes' => [
-            // 'width' => 50,
-            // 'height' => 50,
+            'width' => 0,
+            'height' => 0,
         ],
 
     ],
@@ -26,8 +26,8 @@ return [
         'class' => '',
 
         'attributes' => [
-            // 'width' => 50,
-            // 'height' => 50,
+         'width' => 0,
+            'height' => 0,
         ],
 
     ],
@@ -41,8 +41,8 @@ return [
         'class' => '',
 
         'attributes' => [
-            // 'width' => 50,
-            // 'height' => 50,
+          'width' => 0,
+            'height' => 0,
         ],
 
     ],

@@ -123,14 +123,11 @@ class Options extends Field
                 ->addGroup('header', [
                     'label' => 'Nagłówek',
                 ])
-                ->addText('konsultacja', [
-                    'label' => 'Konsultacja',
+                ->addLink('button', [
+                    'label' => 'Przycisk w nagłówku',
                     'instructions' => 'Wproadz link do konsultacji',
                 ])
-                ->addText('phone', [
-                    'label' => 'Telefon',
-                    'instructions' => 'Wprowadź numer telefonu',
-                ])
+                
                 
             ->endGroup()
         ->addTab('footer', ['label' => 'Stopka'])
@@ -174,7 +171,7 @@ class Options extends Field
                         'default_value' => 'envelope',
                     ])
                     ->addText('text', ['label' => 'Tekst', 'placeholder' => 'np. email@example.com'])
-                    ->addUrl('link', ['label' => 'Link (opcjonalnie)', 'placeholder' => 'mailto:email@example.com lub tel:+48123456789'])
+                    ->addText('link', ['label' => 'Link (opcjonalnie)', 'placeholder' => 'mailto:email@example.com lub tel:+48123456789'])
                 ->endRepeater()
             ->endGroup()
             ->addRepeater('socials', ['label' => 'Social Media', 'placement' => 'left', 'button_label' => 'Dodaj social media'])
@@ -187,7 +184,7 @@ class Options extends Field
                     ],
                     'default_value' => 'facebook-f',
                 ])
-                ->addUrl('link', ['label' => 'Link', 'placeholder' => 'https://facebook.com/...'])
+                ->addText('link', ['label' => 'Link', 'placeholder' => 'https://facebook.com/...'])
             ->endRepeater()
         ->addTab('privacy', ['label' => 'Polityka prywatności'])
             ->addWysiwyg('privacy_policy_text', [

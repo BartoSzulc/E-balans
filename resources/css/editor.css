@@ -25,64 +25,62 @@
  * 4. Update --font-* variables in abstracts/_variables.scss
  * 5. Rebuild with `npm run build`
  *
- * CURRENT FONTS (From Figma):
- * - Gantari (Primary): Multiple weights (400, 600, 700)
- * - Sansita (Secondary/Testimonials): 1 weight (400 italic)
- *
- * ═══════════════════════════════════════════════════════════════════════════
- */
-/* ─────────────────────────────────────────────────────────────────────────
- * GANTARI - Primary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * A modern sans-serif typeface
- * Used for: Body text, headings, UI components, buttons, menus
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required weights from Figma: 400, 600, 700
- */
-/* Regular (400) */
+/* nunito-regular - latin_latin-ext */
 @import "tailwindcss" theme(static);
 @font-face {
-  font-display: swap;
-  font-family: "Gantari";
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/gantari-v4-latin_latin-ext-regular.woff2") format("woff2");
+  src: url("../fonts/nunito-v26-latin_latin-ext-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* Semi-Bold (600) */
+/* nunito-italic - latin_latin-ext */
 @font-face {
-  font-display: swap;
-  font-family: "Gantari";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/gantari-v4-latin_latin-ext-600.woff2") format("woff2");
-}
-/* Bold (700) */
-@font-face {
-  font-display: swap;
-  font-family: "Gantari";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/gantari-v4-latin_latin-ext-700.woff2") format("woff2");
-}
-/* ─────────────────────────────────────────────────────────────────────────
- * SANSITA - Secondary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * An elegant typeface for testimonials and quotes
- * Used for: Testimonials (opinia), quotes, decorative text
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required: 400 italic
- */
-/* Regular Italic (400) */
-@font-face {
-  font-display: swap;
-  font-family: "Sansita";
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
   font-style: italic;
   font-weight: 400;
-  src: url("../fonts/sansita-v12-latin_latin-ext-italic.woff2") format("woff2");
+  src: url("../fonts/nunito-v26-latin_latin-ext-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/nunito-v26-latin_latin-ext-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/nunito-v26-latin_latin-ext-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/nunito-v26-latin_latin-ext-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/nunito-v26-latin_latin-ext-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-900 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/nunito-v26-latin_latin-ext-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /**
  * ═══════════════════════════════════════════════════════════════════════════
@@ -184,6 +182,7 @@
    * ────────────────────────────────────────────────────────────────────
    * Usage: shadow-cien-1-1, shadow-cien-1-2
    */
+  --shadow-special: 0px 0px 15px rgba(0, 0, 0, 0.1);
   --shadow-cien-1: 30px 30px 50px rgba(7, 24, 44, 0.2);
   --shadow-cien-2: 30px 40px 40px rgba(7, 24, 44, 0.15);
   /* ────────────────────────────────────────────────────────────────────
@@ -196,6 +195,7 @@
   --radius-80: 0.4166666667rem; /* 80px at 1920px viewport */
   --radius-40: 0.2083333333rem; /* 40px at 1920px viewport */
   --radius-30: 0.15625rem; /* 30px at 1920px viewport */
+  --radius-32: 0.1666666667rem; /* 30px at 1920px viewport */
   --radius-20: 0.1041666667rem; /* 20px at 1920px viewport */
   --radius-16: 0.0833333333rem; /* 10px at 1920px viewport */
   --radius-12: 0.0625rem; /* 12px at 1920px viewport */
@@ -241,7 +241,7 @@
   --text-h5--font-weight: 700; /* Bold */
   /* Body Text Styles (From Figma Design Tokens) */
   --text-body: 0.0833333333rem; /* 16px at 1920px viewport */
-  --text-body--line-height: 0.1166666667rem;
+  --text-body--line-height: 140%;
   --text-body--font-weight: 400;
   --text-small: 0.0677083333rem; /* 13px at 1920px viewport */
   --text-small--line-height: 0.08125rem;
@@ -305,6 +305,8 @@
   --ease-power2-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --animate-pulse-ring: pulse-ring 2s var(--ease-power2-out) infinite;
   --grid-34e: 2.3020833333rem; /* 340px grid column */
+  --grid-710: 3.6979166667rem; /* 710px grid column */
+  --grid-344: 1.7916666667rem; /* 344px grid column */
   /* ────────────────────────────────────────────────────────────────────
    * KEYFRAME ANIMATIONS
    * ────────────────────────────────────────────────────────────────────  */

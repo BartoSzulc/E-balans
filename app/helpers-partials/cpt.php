@@ -115,3 +115,33 @@ function register_produkty_taxonomy() {
 }
 add_action('init', 'register_produkty_taxonomy');
 
+// Register custom post type "Referencje"
+function register_custom_post_type_referencje() {
+    $labels = array(
+        'name' => 'Referencje',
+        'singular_name' => 'Referencja',
+        'add_new' => 'Dodaj nową referencję',
+        'add_new_item' => 'Dodaj nową referencję',
+        'edit_item' => 'Edytuj referencję',
+        'new_item' => 'Nowa referencja',
+        'view_item' => 'Zobacz referencję',
+        'search_items' => 'Szukaj referencji',
+        'not_found' => 'Nie znaleziono referencji',
+        'not_found_in_trash' => 'Nie znaleziono referencji w koszu',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'has_archive' => false,
+        'public' => true,
+        'supports' => array('title', 'editor', 'excerpt'),
+        'menu_icon' => 'dashicons-star-filled',
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'referencje'),
+    );
+
+    register_post_type('referencje', $args);
+}
+add_action('init', 'register_custom_post_type_referencje');
+

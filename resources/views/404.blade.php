@@ -16,7 +16,7 @@
                     <h1>Nie znaleziono strony, której szukasz</h1>
                 </div>
                 <div class="inline-flex" data-aos="fade-up" data-aos-delay="200">
-                    <a href="{{ home_url('/') }}" class="btn btn-primary !min-w-200"><span>Strona główna</span></a>
+                    <a href="{{ home_url('/') }}" class="btn btn--primary !min-w-200">Strona główna</a>
                 </div>
             </div>
         </div>

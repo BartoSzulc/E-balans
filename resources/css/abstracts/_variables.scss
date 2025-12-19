@@ -120,6 +120,7 @@
      * ────────────────────────────────────────────────────────────────────
      * Usage: shadow-cien-1-1, shadow-cien-1-2
      */
+    --shadow-special: 0px 0px 15px rgba(0, 0, 0, 0.1);
     --shadow-cien-1: 30px 30px 50px rgba(7, 24, 44, 0.2);
     --shadow-cien-2: 30px 40px 40px rgba(7, 24, 44, 0.15);
 
@@ -133,6 +134,7 @@
     --radius-80: #{px-rem(80, 192)}; /* 80px at 1920px viewport */
     --radius-40: #{px-rem(40, 192)}; /* 40px at 1920px viewport */
     --radius-30: #{px-rem(30, 192)}; /* 30px at 1920px viewport */
+    --radius-32: #{px-rem(32, 192)}; /* 30px at 1920px viewport */
     --radius-20: #{px-rem(20, 192)};/* 20px at 1920px viewport */
     --radius-16: #{px-rem(16, 192)}; /* 10px at 1920px viewport */
     --radius-12: #{px-rem(12, 192)}; /* 12px at 1920px viewport */
@@ -185,10 +187,10 @@
 
     /* Body Text Styles (From Figma Design Tokens) */
     --text-body: #{px-rem(16, 192)}; /* 16px at 1920px viewport */
-    --text-body--line-height: #{px-rem(22.4, 192)};
+    --text-body--line-height: 140%;
     --text-body--font-weight: 400;
 
-    --text-small: #{px-rem(13, 192)}; /* 13px at 1920px viewport */
+  --text-small: #{px-rem(13, 192)}; /* 13px at 1920px viewport */
     --text-small--line-height: #{px-rem(15.6, 192)};
     --text-small--font-weight: 400;
 
@@ -262,6 +264,8 @@
     --ease-power2-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --animate-pulse-ring: pulse-ring 2s var(--ease-power2-out) infinite;
     --grid-34e: #{px-rem(442)}; /* 340px grid column */
+    --grid-710: #{px-rem(710)}; /* 710px grid column */
+    --grid-344: #{px-rem(344)}; /* 344px grid column */
 
 
     /* ────────────────────────────────────────────────────────────────────

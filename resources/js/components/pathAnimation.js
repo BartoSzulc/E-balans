@@ -23,7 +23,7 @@ export function initializePathAnimations() {
             const isOddIndex = index % 2 === 1;
 
             gsap.set(animatedLine, {
-                stroke: '#0B284A',
+                stroke: '#124797',
                 strokeWidth: isOddIndex ? 1 : 1,
                 opacity: 1,
                 drawSVG: isReversed ? '100% 100%' : '0% 0%',
@@ -136,7 +136,7 @@ export function initializePathAnimations() {
     //     lastLines.forEach((lastLine) => {
     //         const isReversed = lastLine.classList.contains('line-reversed');
     //         gsap.set(lastLine, {
-    //             stroke: '#0B284A',
+    //             stroke: '#124797',
     //             strokeWidth: 1,
     //             opacity: 1,
     //             drawSVG: isReversed ? '100% 100%' : '0% 0%',
@@ -205,7 +205,7 @@ export function initializePathAnimations() {
 //       // Set initial state for the animated line.
 //       // This is done immediately (not part of the timeline) so lines are ready.
 //       gsap.set(animatedLine, {
-//           stroke: '#0B284A',    // Final stroke color
+//           stroke: '#124797',    // Final stroke color
 //           strokeWidth: 1,       // Stroke width
 //           opacity: 1,           // IMPORTANT: Line starts INVISIBLE so it appears as it draws
 //           drawSVG: isReversed ? '100% 100%' : '0% 0%', // Initial state for drawing direction

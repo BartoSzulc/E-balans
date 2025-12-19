@@ -135,7 +135,7 @@ All design tokens are defined in `resources/css/abstracts/_variables.scss` using
 ```scss
 // Define in _variables.scss
 --color-color-1: #0F529E;  /* Primary Blue */
---color-color-2: #5CE6DE;  /* Secondary Cyan */
+--color-color-2: #E52F3D;  /* Secondary Cyan */
 ```
 
 ```html

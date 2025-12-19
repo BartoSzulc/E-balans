@@ -21,13 +21,9 @@
 
         @if(!empty($cta['link']))
           <div class="cta-button">
-            <a
-              href="{{ $cta['link']['url'] }}"
-              class="button"
-              @if(!empty($cta['link']['target'])) target="{{ $cta['link']['target'] }}" @endif
-            >
-              {{ $cta['link']['title'] }}
-            </a>
+            @php
+              acf_link($cta['link'], 'btn btn--primary');
+            @endphp
           </div>
         @endif
       </div>

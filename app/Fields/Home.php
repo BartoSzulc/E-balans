@@ -147,23 +147,23 @@ class Home extends Field
             ->addGroup('testimonials', [
                 'label' => 'Testimonials Section',
             ])
-                ->addRepeater('add_testimonial', [
-                    'label' => 'Testimonials',
-                    'instructions' => 'Add testimonials',
-                    'layout' => 'block',
-                    'button_label' => 'Add Testimonial',
+            ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
                 ])
-                    ->addWysiwyg('author', [
-                        'label' => 'Author',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                    ->addWysiwyg('description', [
-                        'label' => 'Description',
-                        'toolbar' => 'full',
-                        'media_upload' => 0,
-                    ])
-                ->endRepeater()
+                ->addRelationship('referencje', [
+                    'label' => 'Referencje',
+                    'instructions' => 'Select referencje to display. If none selected, 3 latest will be shown.',
+                    'post_type' => ['referencje'],
+                    'filters' => ['search'],
+                    'return_format' => 'id',
+                    'max' => 3,
+                ])
+                ->addLink('button', [
+                    'label' => 'Button',
+                    'return_format' => 'array',
+                ])
             ->endGroup()
 
             // MSIT Section
@@ -195,6 +195,11 @@ class Home extends Field
             ->addGroup('our_materialy', [
                 'label' => 'Our Materiały Section',
             ])
+            ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ])
                 ->addRepeater('add_material', [
                     'label' => 'Materials',
                     'instructions' => 'Add materials',
@@ -238,6 +243,11 @@ class Home extends Field
             ->addGroup('partnerzy', [
                 'label' => 'Partnerzy Section',
             ])
+            ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ])
                 ->addRepeater('add_image', [
                     'label' => 'Partners',
                     'instructions' => 'Add partner logos',
