@@ -20,7 +20,7 @@
 @if($aktualnosci || $posts_to_display)
   <section class="aktualnosci-section mt-50 lg:mt-120 overflow-x-clip">
     <div class="container">
-      <div class="lg:text-center section-title text-h2 mb-30 lg:mb-40 text-color-3">
+      <div class="lg:text-center section-title text-h2 mb-30 lg:mb-40 text-color-3" data-aos="fade-up" data-aos-delay="100">
         {!! $section_title !!}
       </div>
 
@@ -29,23 +29,25 @@
            @include('partials.decorative-circle', [
               'size' => 'size-143',
               'bg' => 'bg-color-4',
-              'position' => '-top-49 -right-63'
-              
+              'position' => '-top-49 -right-63',
+              'animation' => 'zoom-in-left',
+              'delay' => 200
             ])
              @include('partials.decorative-circle', [
               'size' => 'size-143',
               'bg' => 'bg-color-4',
-              'position' => 'bottom-58 -left-58'
-              
+              'position' => 'bottom-58 -left-58',
+              'animation' => 'zoom-in-right',
+              'delay' => 400
             ])
           @foreach($posts_to_display as $post_id)
-            @include('partials.post-card', ['post_id' => $post_id])
+            @include('partials.post-card', ['post_id' => $post_id, 'aos_delay' => 200 + ($loop->index * 100)])
           @endforeach
         </div>
       @endif
 
       @if($aktualnosci['button'])
-        <div class="text-center section-button mt-30 lg:mt-40">
+        <div class="text-center section-button mt-30 lg:mt-40" data-aos="fade-up" data-aos-delay="600">
           @php
           acf_link($aktualnosci['button'], 'btn btn--primary');
           @endphp

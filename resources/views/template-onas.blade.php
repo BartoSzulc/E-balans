@@ -10,7 +10,7 @@
   @php
     $flexible_content = get_field('flexible_content');
   @endphp
-
+  @include('partials.page-header')
   @if($flexible_content)
     @foreach($flexible_content as $layout)
       @switch($layout['acf_fc_layout'])

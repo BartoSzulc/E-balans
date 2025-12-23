@@ -9,7 +9,7 @@
     <section class="how-it-works-section mt-50 lg:mt-120">
         <div class="container mx-auto">
             @if (!empty($how_it_works['title']))
-                <div class="section-title text-h2 lg:text-center mb-30 lg:mb-40 text-color-3">
+                <div class="section-title text-h2 lg:text-center mb-30 lg:mb-40 text-color-3" data-aos="fade-up" data-aos-delay="100">
                     {!! $how_it_works['title'] !!}
                 </div>
             @endif
@@ -17,30 +17,36 @@
             @if (!empty($how_it_works['add_how_it_works']))
                 <div class="grid grid-cols-1 gap-x-86 gap-y-24 lg:grid-cols-3 steps-grid">
                     @foreach ($how_it_works['add_how_it_works'] as $index => $step)
-                        <div class="relative flex flex-col items-center gap-24 text-center step-item">
+                        <div class="relative flex flex-col items-center gap-24 text-center step-item" data-aos="fade-up" data-aos-delay="{{ 200 + ($loop->index * 100) }}">
 
                             @if (!empty($step['image']))
                                 <div class="relative step-image">
                                     {!! wp_get_attachment_image($step['image'], 'false', false, [
-                                        'class' => 'size-200 object-cover object-center rounded-full',
+                                        'class' => 'shadow-special size-200 object-cover object-center rounded-full',
                                     ]) !!}
                                     @if ($loop->index === 0)
                                         @include('partials.decorative-circle', [
                                             'size' => 'size-38',
                                             'bg' => 'bg-color-4',
                                             'position' => 'top-24 left-0',
+                                            'animation' => 'zoom-in-up',
+                                            'delay' => 300
                                         ])
                                     @elseif($loop->index === 1)
                                         @include('partials.decorative-circle', [
                                             'size' => 'size-38',
                                             'bg' => 'bg-color-4',
                                             'position' => 'right-20 bottom-0',
+                                            'animation' => 'zoom-in-left',
+                                            'delay' => 400
                                         ])
                                     @elseif($loop->index === 2)
                                         @include('partials.decorative-circle', [
                                             'size' => 'size-38',
                                             'bg' => 'bg-color-4',
                                             'position' => '-left-19 bottom-45',
+                                            'animation' => 'zoom-in-right',
+                                            'delay' => 500
                                         ])
                                     @endif
                                 </div>
@@ -48,7 +54,7 @@
 
                             @if (!empty($step['title']))
                                 <div class="step-title text-h3 lg:mt-16 text-color-3">
-                                    {{ $step['title'] }}
+                                    {!! $step['title'] !!}
                                 </div>
                             @endif
 

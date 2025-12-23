@@ -27,6 +27,7 @@ import {
   initGoogleMap,
   loadGoogleMapsAPI,
 } from './components/googleMap.js';
+import { initializeReferencjeLoader } from './components/ReferencjeLoader.js';
 
 const images = import.meta.glob(['../images/**', '../fonts/**']);
 // async function setupMap() {
@@ -75,6 +76,7 @@ domReady(async () => {
   detectSVGPathTypes();
   initializeScrollAndAOS();
   initializePathAnimations();
+  initializeReferencjeLoader();
 
   if (isHome()) {
     initVideoToggle();

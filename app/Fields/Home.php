@@ -152,10 +152,10 @@ class Home extends Field
                     'toolbar' => 'full',
                     'media_upload' => 0,
                 ])
-                ->addRelationship('referencje', [
-                    'label' => 'Referencje',
-                    'instructions' => 'Select referencje to display. If none selected, 3 latest will be shown.',
-                    'post_type' => ['referencje'],
+                ->addRelationship('opinie', [
+                    'label' => 'Opinie',
+                    'instructions' => 'Select opinie to display. If none selected, 3 latest will be shown.',
+                    'post_type' => ['opinie'],
                     'filters' => ['search'],
                     'return_format' => 'id',
                     'max' => 3,
@@ -236,7 +236,7 @@ class Home extends Field
                     ->addPartial(HowItWorks::class)
             ->endGroup()
 
-            // Partnerzy Section
+        // Partnerzy Section
             ->addTab('partnerzy', [
                 'label' => 'Partnerzy',
             ])

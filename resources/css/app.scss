@@ -7,6 +7,7 @@
 // Abstracts
 @import 'abstracts/variables';
 @import 'abstracts/aos';
+@import 'abstracts/aos-custom';
 
 
 // Components
@@ -334,4 +335,13 @@ a {
 .border-dashed-custom {
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2366B0C0FF' stroke-dasharray='6.6' stroke-dashoffset='28.96' stroke-linecap='square'/%3e%3c/svg%3e");
     @apply bg-no-repeat bg-contain bg-center;
+}
+
+#breadcrumbs {
+    span {
+        @apply flex gap-16 justify-center;
+        a {
+            @apply transition-all duration-300 ease-power1-in underline decoration-transparent hover:decoration-color-2 hover:text-color-2;
+        }
+    }
 }

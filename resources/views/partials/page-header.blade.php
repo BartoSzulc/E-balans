@@ -1,31 +1,51 @@
 @php
     $hero = get_field('hero');
-    $subtitle = $hero['subtitle'] ?? null;
-    $title = $hero['title'] ?? null;
+    $title = $hero['title'];
 @endphp
 
 
-<section class="relative z-10 page-header pb-60 pt-110">
-    <div class="absolute inset-0 bottom-0 z-0 bg-color-2"></div>
+<section class="relative z-10 pt-40 page-header">
     <div class="container relative z-10">
-        <div class="gap-24 grid-grid-cols-12">
+        <div class="space-y-24 text-center">
+            @php
+                if (function_exists('yoast_breadcrumb')) {
+                    yoast_breadcrumb('<p id="breadcrumbs" class="">', '</p>');
+                }
+            @endphp
             @if ($hero)
-                @if ($subtitle)
-                    <div class="mb-20 font-extrabold text-h3 lg:mb-25">
-                        {!! $subtitle !!}
-                    </div>
-                @endif
                 @if ($title)
-                    <h1 class="font-extrabold text-h1 lg:text-h2">
+                    <div class="text-h1 max-lg:text-h2 text-color-3">
                         {!! $title !!}
+                    </div>
+                @else
+                    <h1 class="text-h1 max-lg:text-h2 text-color-3">
+                        {{ get_the_title() }}
                     </h1>
                 @endif
             @endif
-            @php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<p id="breadcrumbs" class="lg:mt-80">','</p>' );
-            }
-            @endphp 
+            <div class="relative h-360 mt-36">
+                @include('partials.decorative-circle', [
+                    'size' => 'size-82 ',
+                    'bg' => 'bg-color-4',
+                    'position' => '-bottom-41 -left-17',
+                    'hiddenOnMobile' => false,
+                    'delay' => 100,
+                    'animation' => 'zoom-in-up',
+                ])
+                @include('partials.decorative-circle', [
+                    'size' => 'size-143',
+                    'bg' => 'bg-color-4',
+                    'position' => '-top-72 -right-62',
+                    'hiddenOnMobile' => false,
+                    'delay' => 300,
+                    'animation' => 'zoom-in-left',
+                ])
+
+                {!! wp_get_attachment_image($hero['hero_image'], 'full', false, [
+                    'class' => 'object-cover object-center size-full rounded-32 relative z-10 shadow-special',
+                    'role' => 'presentation',
+                ]) !!}
+            </div>
         </div>
     </div>
 </section>

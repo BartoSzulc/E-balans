@@ -94,6 +94,7 @@ add_filter('upload_mimes', 'cc_mime_types');
 require('helpers-partials/navwalker.php');
 require('helpers-partials/cpt.php');
 require('helpers-partials/page_navi.php');
+require('helpers-partials/rest-api.php');
 //require('helpers/CPT.php');
 
 add_filter('wpcf7_autop_or_not', '__return_false');

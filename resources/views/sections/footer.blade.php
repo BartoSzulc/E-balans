@@ -4,8 +4,8 @@
     $contact_info = $footer['contact_info'] ?? [];
 @endphp
 
-<footer class="relative footer">
-    <section class="py-40 bg-color-5 footer__inside lg:py-60">
+<footer class="relative footer lg:mt-120 mt-50">
+    <section class="pb-30 lg:pb-48 bg-color-5 footer__inside">
         <div class="container">
             <div class="grid grid-cols-1 gap-40 lg:grid-cols-12 lg:gap-60">
                 {{-- Logo & Contact Info Column --}}

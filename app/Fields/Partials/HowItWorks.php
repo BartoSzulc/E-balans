@@ -31,7 +31,7 @@ class HowItWorks extends Partial
                     'return_format' => 'id',
                     'preview_size' => 'medium',
                 ])
-                ->addText('title', [
+                ->addWysiwyg('title', [
                     'label' => 'Title',
                 ])
                 ->addWysiwyg('description', [

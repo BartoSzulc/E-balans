@@ -1,9 +1,10 @@
 @php
     // Accept post_id parameter, otherwise use current post
     $post_id = $post_id ?? get_the_ID();
+    $aos_delay = $aos_delay ?? 0;
 @endphp
 
-<article data-aos="fade-up" class="relative z-10 flex flex-col bg-white shadow-special rounded-32 lg:min-h-568">
+<article data-aos="fade-up" data-aos-delay="{{ $aos_delay }}" class="relative z-10 flex flex-col bg-white shadow-special rounded-32 lg:min-h-568">
         <a href="{{ get_permalink($post_id) }}" class="flex px-8 pt-8 group">
             @if (has_post_thumbnail($post_id))
                 <div class="relative flex overflow-hidden post-thumbnail h-200 lg:h-280 rounded-32">
@@ -27,7 +28,7 @@
                     <h3>{!! get_the_title($post_id) !!}</h3>
                 @endif
             </div>
-            <div class="entry-summary line-clamp-3 grow">
+            <div class="entry-summary grow">
                 {{ get_the_excerpt($post_id) }}
             </div>
         <a href="{{ get_permalink($post_id) }}" class="flex items-center space-x-8 transition-all duration-300 ease-in-out group hover:text-color-2"><span>Czytaj dalej</span><svg class="duration-300 size-24 translate-all ease-power1-in group-hover:translate-x-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
