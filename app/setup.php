@@ -111,9 +111,8 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage'),
-        'footer_menu_1' => __('Footer - Menu', 'sage'),
-        'footer_menu_2' => __('Footer - Branże produktowe', 'sage'),
-        'footer_menu_3' => __('Footer - Produkty', 'sage'),
+        'footer_menu_1' => __('Footer - Materiały', 'sage'),
+        'footer_menu_2' => __('Footer - O nas', 'sage'),
     ]);
 
     /**

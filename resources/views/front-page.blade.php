@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content') 
   {{-- Hero Section --}}
   @include('sections.home.hero')
 
@@ -23,6 +23,6 @@
   @include('sections.home.how-it-works')
 
   {{-- Partnerzy Section --}}
-  @include('sections.home.partnerzy')
+  @include('partials.partnerzy')
 
 @endsection

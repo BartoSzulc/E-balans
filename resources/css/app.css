@@ -28,7 +28,7 @@
  * 3. USAGE IN HTML
  *    Variables can be used via Tailwind utility classes:
  *    - text-h1         → var(--text-h1) with line-height and font-weight
- *    - text-color-1    → var(--color-color-1)
+ *    - bg-color-1      → var(--color-color-1)
  *    - rounded-40      → var(--radius-40)
  *    - font-primary    → var(--font-primary)
  *
@@ -72,8 +72,8 @@
    * Custom fonts are loaded in components/_fonts.scss
    * Usage: font-primary, font-secondary
    */
-  --font-primary: "Gantari", sans-serif;
-  --font-secondary: "Sansita", sans-serif;
+  --font-primary: "Nunito", sans-serif;
+  --font-secondary: "Nunito", sans-serif;
   /* ────────────────────────────────────────────────────────────────────
    * BREAKPOINTS
    * ────────────────────────────────────────────────────────────────────  */
@@ -83,10 +83,10 @@
    * ────────────────────────────────────────────────────────────────────
    * Usage: bg-color-1, text-color-2, border-color-3, etc.
    */
-  --color-color-1: #002234; /* Dark Navy/Blue */
-  --color-color-2: #66b0c0; /* Teal/Cyan */
-  --color-color-3: #c2f970; /* Lime Green */
-  --color-color-4: #e5e9eb; /* Light Gray */
+  --color-color-1: #4e4e4e; /* Black/Dark Gray */
+  --color-color-2: #e52f3d; /* Red (Czerwony) */
+  --color-color-3: #124797; /* Blue (Niebieski) */
+  --color-color-4: #edb903; /* Yellow (Żółty) */
   --color-color-5: #ffffff; /* White */
   /* ────────────────────────────────────────────────────────────────────
    * SPACING SYSTEM
@@ -104,6 +104,8 @@
    * ────────────────────────────────────────────────────────────────────
    * Usage: shadow-cien-1-1, shadow-cien-1-2
    */
+  --shadow-special: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  --shadow-special-1: 0px 0px 15px rgba(0, 0, 0, 0.15);
   --shadow-cien-1: 30px 30px 50px rgba(7, 24, 44, 0.2);
   --shadow-cien-2: 30px 40px 40px rgba(7, 24, 44, 0.15);
   /* ────────────────────────────────────────────────────────────────────
@@ -116,6 +118,7 @@
   --radius-80: 0.4166666667rem; /* 80px at 1920px viewport */
   --radius-40: 0.2083333333rem; /* 40px at 1920px viewport */
   --radius-30: 0.15625rem; /* 30px at 1920px viewport */
+  --radius-32: 0.1666666667rem; /* 30px at 1920px viewport */
   --radius-20: 0.1041666667rem; /* 20px at 1920px viewport */
   --radius-16: 0.0833333333rem; /* 10px at 1920px viewport */
   --radius-12: 0.0625rem; /* 12px at 1920px viewport */
@@ -144,24 +147,35 @@
    * OR use Tailwind utilities: text-h1, text-h2, etc.
    */
   /* Heading Styles (From Figma Design Tokens) */
-  --text-h1: 0.3229166667rem; /* 62px at 1920px viewport */
-  --text-h1--line-height: 0.3333333333rem;
-  --text-h1--font-weight: 600; /* Semi-Bold */
-  --text-h2: 0.25rem; /* 48px at 1920px viewport */
-  --text-h2--line-height: 0.3229166667rem;
-  --text-h2--font-weight: 600; /* Semi-Bold */
-  --text-h3: 0.1979166667rem; /* 38px at 1920px viewport */
-  --text-h3--line-height: 0.2291666667rem;
-  --text-h3--font-weight: 600; /* Semi-Bold */
-  --text-h4: 0.1458333333rem; /* 28px at 1920px viewport */
-  --text-h4--line-height: 0.1875rem;
-  --text-h4--font-weight: 600; /* Semi-Bold */
-  --text-h5: 0.1145833333rem; /* 22px at 1920px viewport */
-  --text-h5--line-height: 0.15625rem;
-  --text-h5--font-weight: 600; /* Semi-Bold */
+  --text-h1: 0.2552083333rem; /* 49px at 1920px viewport */
+  --text-h1--line-height: 0.30625rem;
+  --text-h1--font-weight: 700; /* Bold */
+  --text-h2: 0.203125rem; /* 39px at 1920px viewport */
+  --text-h2--line-height: 0.24375rem;
+  --text-h2--font-weight: 700; /* Bold */
+  --text-h3: 0.1614583333rem; /* 31px at 1920px viewport */
+  --text-h3--line-height: 0.19375rem;
+  --text-h3--font-weight: 700; /* Bold */
+  --text-h4: 0.1302083333rem; /* 25px at 1920px viewport */
+  --text-h4--line-height: 0.15625rem;
+  --text-h4--font-weight: 700; /* Bold */
+  --text-h5: 0.1041666667rem; /* 20px at 1920px viewport */
+  --text-h5--line-height: 0.125rem;
+  --text-h5--font-weight: 700; /* Bold */
   /* Body Text Styles (From Figma Design Tokens) */
+  --text-body: 0.0833333333rem; /* 16px at 1920px viewport */
+  --text-body--line-height: 140%;
+  --text-body--font-weight: 400;
+  --text-small: 0.0677083333rem; /* 13px at 1920px viewport */
+  --text-small--line-height: 0.08125rem;
+  --text-small--font-weight: 400;
+  --text-quote: 0.0833333333rem; /* 16px at 1920px viewport */
+  --text-quote--line-height: 0.1166666667rem;
+  --text-quote--font-weight: 400;
+  --text-quote--font-style: italic;
+  /* Legacy sizes for compatibility */
   --text-16: 0.0833333333rem; /* 16px at 1920px viewport */
-  --text-16--line-height: 0.125rem;
+  --text-16--line-height: 0.1166666667rem;
   --text-16--font-weight: 400;
   --text-18: 0.09375rem; /* 18px at 1920px viewport */
   --text-18--line-height: 0.1354166667rem;
@@ -214,6 +228,8 @@
   --ease-power2-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --animate-pulse-ring: pulse-ring 2s var(--ease-power2-out) infinite;
   --grid-34e: 2.3020833333rem; /* 340px grid column */
+  --grid-710: 3.6979166667rem; /* 710px grid column */
+  --grid-344: 1.7916666667rem; /* 344px grid column */
   /* ────────────────────────────────────────────────────────────────────
    * KEYFRAME ANIMATIONS
    * ────────────────────────────────────────────────────────────────────  */
@@ -276,23 +292,33 @@
     --radius-4: 0.125rem; /* 4px at 1920px viewport */
     --radius-2: 0.0625rem; /* 2px at 1920px viewport */
     --radius-1: 0.03125rem; /* 1px at 1920px viewport */
-    --text-h1: 1.5rem; /* Smaller on mobile */
-    --text-h1--line-height: 1.625rem;
-    --text-h1--font-weight: 600; /* Semi-Bold */
-    --text-h2: 1.1875rem;
-    --text-h2--line-height: 1.375rem;
-    --text-h2--font-weight: 600; /* Semi-Bold */
-    --text-h3: 0.875rem;
-    --text-h3--line-height: 1.0625rem;
-    --text-h3--font-weight: 600; /* Semi-Bold */
-    --text-h4: 0.75rem;
-    --text-h4--line-height: 0.9375rem;
-    --text-h4--font-weight: 600; /* Semi-Bold */
+    --text-h1: 1.25rem; /* Smaller on mobile */
+    --text-h1--line-height: 1.5rem;
+    --text-h1--font-weight: 700; /* Bold */
+    --text-h2: 1rem;
+    --text-h2--line-height: 1.1875rem;
+    --text-h2--font-weight: 700; /* Bold */
+    --text-h3: 0.8125rem;
+    --text-h3--line-height: 0.96875rem;
+    --text-h3--font-weight: 700; /* Bold */
+    --text-h4: 0.65625rem;
+    --text-h4--line-height: 0.78125rem;
+    --text-h4--font-weight: 700; /* Bold */
     --text-h5: 0.5625rem;
-    --text-h5--line-height: 0.75rem;
-    --text-h5--font-weight: 600; /* Semi-Bold */
+    --text-h5--line-height: 0.6875rem;
+    --text-h5--font-weight: 700; /* Bold */
+    --text-body: 0.5rem;
+    --text-body--line-height: 0.7rem;
+    --text-body--font-weight: 400;
+    --text-small: 0.40625rem;
+    --text-small--line-height: 0.4875rem;
+    --text-small--font-weight: 400;
+    --text-quote: 0.5rem;
+    --text-quote--line-height: 0.7rem;
+    --text-quote--font-weight: 400;
+    --text-quote--font-style: italic;
     --text-16: 0.5rem;
-    --text-16--line-height: 0.75rem;
+    --text-16--line-height: 0.7rem;
     --text-16--font-weight: 400;
     --text-18: 0.5625rem;
     --text-18--line-height: 0.8125rem;
@@ -1315,6 +1341,25 @@
   }
 }
 /**
+ * Custom AOS Animations
+ *
+ * Custom animations extending the AOS library
+ */
+/**
+ * Zoom from half animation
+ * Zooms element from scale(0.5) to scale(1)
+ */
+[data-aos=zoom-from-half] {
+  opacity: 0;
+  transform: scale(0.5) translateY(-50px);
+  transition-property: opacity, transform;
+}
+[data-aos=zoom-from-half].aos-animate {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/**
  * ═══════════════════════════════════════════════════════════════════════════
  * CUSTOM FONT LOADING (From Figma Design Tokens)
  * ═══════════════════════════════════════════════════════════════════════════
@@ -1340,92 +1385,73 @@
  * 4. Update --font-* variables in abstracts/_variables.scss
  * 5. Rebuild with `npm run build`
  *
- * CURRENT FONTS (From Figma):
- * - Gantari (Primary): Multiple weights (400, 600, 700)
- * - Sansita (Secondary/Testimonials): 1 weight (400 italic)
- *
- * ═══════════════════════════════════════════════════════════════════════════
- */
-/* ─────────────────────────────────────────────────────────────────────────
- * GANTARI - Primary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * A modern sans-serif typeface
- * Used for: Body text, headings, UI components, buttons, menus
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required weights from Figma: 400, 600, 700
- */
-/* Regular (400) */
+/* nunito-regular - latin_latin-ext */
 @font-face {
-  font-display: swap;
-  font-family: "Gantari";
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/gantari-v4-latin_latin-ext-regular.woff2") format("woff2");
+  src: url("../fonts/nunito-v26-latin_latin-ext-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* Semi-Bold (600) */
+/* nunito-italic - latin_latin-ext */
 @font-face {
-  font-display: swap;
-  font-family: "Gantari";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/gantari-v4-latin_latin-ext-600.woff2") format("woff2");
-}
-/* Bold (700) */
-@font-face {
-  font-display: swap;
-  font-family: "Gantari";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/gantari-v4-latin_latin-ext-700.woff2") format("woff2");
-}
-/* ─────────────────────────────────────────────────────────────────────────
- * SANSITA - Secondary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * An elegant typeface for testimonials and quotes
- * Used for: Testimonials (opinia), quotes, decorative text
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required: 400 italic
- */
-/* Regular Italic (400) */
-@font-face {
-  font-display: swap;
-  font-family: "Sansita";
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
   font-style: italic;
   font-weight: 400;
-  src: url("../fonts/sansita-v12-latin_latin-ext-italic.woff2") format("woff2");
+  src: url("../fonts/nunito-v26-latin_latin-ext-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/nunito-v26-latin_latin-ext-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/nunito-v26-latin_latin-ext-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/nunito-v26-latin_latin-ext-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/nunito-v26-latin_latin-ext-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-900 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/nunito-v26-latin_latin-ext-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 .btn {
-  @apply transition-all duration-500 ease-power1-in flex items-center gap-8 justify-between min-w-310 uppercase text-button relative border-1 border-color-1 bg-color-1 rounded-full pl-20 py-14 lg:py-18 text-white;
+  @apply transition-all duration-300 ease-in-out inline-flex items-center justify-center px-40 py-16 text-body rounded-full text-white;
 }
-.btn:after {
-  content: "";
-  @apply w-80 h-24 flex transition-all duration-500 ease-power1-in;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.01069 7.99986L7.76769 3.80086V5.10086L4.01069 0.901855H6.24669L9.18469 4.07386V4.82786L6.24669 7.99986H4.01069ZM0.929688 5.29586V3.60586H7.65069V5.29586H0.929688Z' fill='%235CE6DE'/%3E%3C/svg%3E%0A");
-  @apply bg-size-[10px_8px] bg-no-repeat bg-center;
+.btn--primary {
+  @apply bg-color-2 text-white hover:opacity-70;
 }
-.btn:before {
-  content: "";
-  @apply size-full absolute flex top-10 left-10 border border-color-2 bg-color-2 transition-all duration-500 ease-power2-out rounded-full -z-1;
-}
-.btn:hover {
-  @apply text-color-1 border-color-2 bg-color-2;
-}
-.btn:hover:before {
-  @apply top-0 left-0;
-}
-.btn:hover:after {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.01069 7.99986L7.76769 3.80086V5.10086L4.01069 0.901855H6.24669L9.18469 4.07386V4.82786L6.24669 7.99986H4.01069ZM0.929688 5.29586V3.60586H7.65069V5.29586H0.929688Z' fill='%230F529E'/%3E%3C/svg%3E%0A");
+.btn--secondary {
+  @apply bg-color-3 text-white hover:opacity-70;
 }
 .btn--white {
-  @apply border-color-5 bg-white text-color-1;
-}
-.btn--white:before {
-  content: "";
-  @apply size-full absolute flex top-10 left-10 border border-color-2 bg-white transition-all duration-500 ease-power2-out rounded-full -z-1;
+  @apply bg-white text-color-1 hover:opacity-70;
 }
 .btn--noshadow {
   @apply shadow-none;
@@ -1445,25 +1471,19 @@
 }
 
 .form__grid {
-  @apply grid grid-cols-12 gap-20;
+  @apply grid grid-cols-12 gap-y-32;
 }
 .form__grid-col {
-  @apply col-span-full grid gap-20 items-center;
-}
-.form__grid-col label {
-  @apply text-color-5;
-}
-.form__grid-col label b {
-  @apply text-16 font-medium pl-20;
+  @apply col-span-full grid lg:gap-x-74 gap-y-32 items-center;
 }
 .form__grid-col label .wpcf7-form-control-wrap {
-  @apply mt-1;
+  @apply mt-8 block;
 }
 .form__grid-col input, .form__grid-col textarea {
-  @apply w-full flex border-1 border-color-2 text-white uppercase rounded-tl-20 rounded-br-20 text-button py-18 px-20 transition-all duration-300 ease-linear;
+  @apply h-40 w-full shadow-special-1 flex border-1 border-color-3 transition-all duration-300 ease-linear rounded-8 pl-16;
 }
 .form__grid-col input::placeholder, .form__grid-col textarea::placeholder {
-  @apply text-white transition-all duration-300 ease-linear;
+  @apply transition-all duration-300 ease-linear;
 }
 .form__grid-col input:focus, .form__grid-col textarea:focus {
   @apply border-color-3 outline-none;
@@ -1479,7 +1499,7 @@
   @apply mt-8;
 }
 .form__grid-col textarea {
-  @apply h-180 rounded-tl-20 rounded-br-20;
+  @apply h-112 rounded-8 pt-8;
 }
 .form__grid-col--col-3 {
   @apply grid-cols-1 lg:grid-cols-3;
@@ -1515,7 +1535,7 @@ input[type=checkbox] {
 }
 
 .wpcf7-response-output {
-  @apply text-white text-center py-5 border rounded-6;
+  @apply text-center py-5 border rounded-6;
   border-color: var(--color-color-2) !important;
 }
 @media (min-width: 1024px) {
@@ -1565,7 +1585,11 @@ input[type=checkbox] {
 }
 
 .text-polityka {
-  @apply text-zgody text-white;
+  @apply text-small;
+}
+
+code {
+  @apply text-color-2;
 }
 
 .menu-item-has-children {
@@ -1591,9 +1615,10 @@ input[type=checkbox] {
 }
 
 .sub-menu {
-  @apply lg:shadow-cien-1 border border-color-4 lg:min-w-290 max-lg:px-15 lg:px-30 lg:pt-40 lg:pb-20 text-menu bg-white absolute max-lg:rounded-10 lg:rounded-40 lg:top-full lg:mt-40 transition-all duration-300 ease-power1-in z-[99999];
+  @apply lg:shadow-cien-1 border border-color-4 lg:min-w-290 max-lg:px-15 lg:px-20 lg:pt-20 lg:pb-20 text-menu bg-white absolute max-lg:rounded-10
+    lg:rounded-16 lg:top-full lg:mt-20 transition-all duration-300 ease-power1-in z-[99999];
   @apply opacity-0 pointer-events-none;
-  @apply lg:-left-30 lg:-translate-y-30;
+  @apply lg:-left-0 lg:-translate-y-30;
   @apply max-lg:relative max-lg:block max-lg:w-full max-lg:bg-color-2/10 max-lg:border-color-5;
   @apply max-lg:h-auto max-lg:overflow-y-visible;
   /* Scrollbar styles */
@@ -1601,8 +1626,8 @@ input[type=checkbox] {
 }
 .sub-menu:before {
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='40' width='40' height='40' rx='20' transform='rotate(90 40 0)' fill='%230F529E'/%3E%3Crect x='40' width='40' height='40' rx='20' transform='rotate(90 40 0)' fill='%230F529E'/%3E%3Cpath d='M16 19.0133L20.199 22.7703L18.899 22.7703L23.098 19.0133L23.098 21.2493L19.926 24.1873L19.172 24.1873L16 21.2493L16 19.0133ZM18.704 15.9323L20.394 15.9323L20.394 22.6533L18.704 22.6533L18.704 15.9323Z' fill='%235CE6DE'/%3E%3C/svg%3E%0A");
-  @apply size-40 bg-no-repeat bg-contain absolute lg:-top-20 lg:left-30 max-lg:-top-15 max-lg:left-15 max-lg:hidden;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23E52F3D'/%3E%3Cpath d='M16.5 11.134C17.1667 11.5189 17.1667 12.4811 16.5 12.866L10.5 16.3301C9.83333 16.715 9 16.2339 9 15.4641L9 8.5359C9 7.7661 9.83333 7.28497 10.5 7.66987L16.5 11.134Z' fill='white'/%3E%3C/svg%3E%0A");
+  @apply absolute bg-no-repeat bg-contain size-24 lg:-top-6 lg:-left-6 max-lg:-top-15 max-lg:left-15 max-lg:hidden;
 }
 .sub-menu::-webkit-scrollbar {
   width: 8px;
@@ -1638,17 +1663,17 @@ input[type=checkbox] {
   @apply lg:stroke-color-5 max-lg:stroke-color-5;
 }
 .sub-menu > .menu-item:hover > a {
-  @apply text-color-1 pl-10;
+  @apply text-color-2 pl-5;
 }
 .sub-menu > .menu-item:hover > a span {
-  @apply decoration-color-1;
+  @apply decoration-color-2;
 }
 .sub-menu > .menu-item:not(:last-child) {
   @apply relative;
 }
 .sub-menu > .menu-item:not(:last-child)::after {
   content: "";
-  @apply relative block my-0 lg:my-20 w-60 h-px lg:bg-color-4 bg-color-1;
+  @apply relative block my-0 lg:my-10 w-60 h-px lg:bg-color-4 bg-color-1;
 }
 
 .mobile-link {
@@ -1666,10 +1691,17 @@ input[type=checkbox] {
 }
 
 .menu-depth-0.menu-item > a {
-  @apply transition-all duration-300 ease-power1-in underline decoration-transparent hover:decoration-color-5;
+  @apply transition-all duration-300 ease-power1-in underline decoration-transparent hover:decoration-color-2;
 }
 .menu-depth-0.menu-item:hover > a {
-  @apply text-color-1;
+  @apply text-color-2;
+}
+.menu-depth-0.menu-item.current-menu-item {
+  @apply relative;
+}
+.menu-depth-0.menu-item.current-menu-item::before {
+  content: "";
+  @apply size-16 bg-color-2 rounded-full absolute -top-8 -translate-y-[300%] left-1/2 -translate-x-1/2;
 }
 
 .mobile-menu {
@@ -2044,24 +2076,23 @@ input[type=checkbox] {
 }
 
 body {
-  @apply font-primary font-medium;
-  @apply text-16;
+  @apply font-primary text-body;
   @apply text-color-1;
 }
 
 .container {
-  max-width: 9.7708333333rem;
-  @apply mx-auto px-24;
+  max-width: 7.8125rem;
+  @apply mx-auto px-30;
 }
 @media (max-width: 1023px) {
   .container {
-    max-width: 22.5rem;
+    max-width: 46.875rem;
     @apply px-15;
   }
 }
 
 .max-w-container {
-  max-width: 9.7708333333rem;
+  max-width: 7.8125rem;
   @apply ml-auto max-lg:max-w-full;
 }
 
@@ -2132,7 +2163,7 @@ a {
 }
 .list-checked li::before {
   @apply relative size-30;
-  content: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z' fill='%235CE6DE'/%3E%3Cpath d='M23.5746 10.9394L15.4541 19.0604L14.9982 19.5163L12.5537 21.9603L9.65332 19.0604L6.42188 15.8284L9.32227 12.928L12.5537 16.1601L14.9982 13.7155L20.6742 8.03955L23.5746 10.9394Z' fill='%230F529E'/%3E%3C/svg%3E%0A");
+  content: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z' fill='%23E52F3D'/%3E%3Cpath d='M23.5746 10.9394L15.4541 19.0604L14.9982 19.5163L12.5537 21.9603L9.65332 19.0604L6.42188 15.8284L9.32227 12.928L12.5537 16.1601L14.9982 13.7155L20.6742 8.03955L23.5746 10.9394Z' fill='%230F529E'/%3E%3C/svg%3E%0A");
 }
 
 .blur-elipse {
@@ -2178,7 +2209,7 @@ a {
   }
 }
 .gradient-blue {
-  background: radial-gradient(100% 399.03% at 50% 0%, #0F529E 0%, #0B284A 100%);
+  background: radial-gradient(100% 399.03% at 50% 0%, #0F529E 0%, #124797 100%);
 }
 
 .gradient-color-2 {
@@ -2270,4 +2301,11 @@ a {
 .border-dashed-custom {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2366B0C0FF' stroke-dasharray='6.6' stroke-dashoffset='28.96' stroke-linecap='square'/%3e%3c/svg%3e");
   @apply bg-no-repeat bg-contain bg-center;
+}
+
+#breadcrumbs span {
+  @apply flex gap-16 justify-center;
+}
+#breadcrumbs span a {
+  @apply transition-all duration-300 ease-power1-in underline decoration-transparent hover:decoration-color-2 hover:text-color-2;
 }

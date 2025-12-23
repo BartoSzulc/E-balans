@@ -46,7 +46,7 @@ export function initializeScrollAndAOS() {
     // } else {
         AOS.init({
             offset: 50,
-            duration: 300,
+            duration: 350,
             easing: 'ease-in-out',
             once: true
         });

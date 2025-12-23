@@ -43,6 +43,7 @@
     "log1x/acf-composer": "^3.3",
     "log1x/sage-directives": "^2.0",
     "log1x/sage-svg": "^2.0",
+    "owenvoke/blade-fontawesome": "^2.9",
     "roots/acorn": "dev-main"
   },
   "require-dev": {

@@ -1,40 +1,19 @@
 .btn {
-  @apply transition-all duration-500 ease-power1-in flex items-center gap-8 justify-between min-w-310 uppercase text-button relative border-1 border-color-1 bg-color-1 rounded-full pl-20 py-14 lg:py-18 text-white;
-  &:after {
-    content: "";
-    @apply w-80 h-24 flex transition-all duration-500 ease-power1-in;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.01069 7.99986L7.76769 3.80086V5.10086L4.01069 0.901855H6.24669L9.18469 4.07386V4.82786L6.24669 7.99986H4.01069ZM0.929688 5.29586V3.60586H7.65069V5.29586H0.929688Z' fill='%235CE6DE'/%3E%3C/svg%3E%0A");
-    @apply bg-size-[10px_8px] bg-no-repeat bg-center;
-  }
-  &:before {
-    content: "";
-    @apply size-full  absolute flex top-10 left-10 border border-color-2 bg-color-2 transition-all duration-500 ease-power2-out rounded-full -z-1;
+  @apply transition-all duration-300 ease-in-out inline-flex items-center justify-center px-40 py-16 text-body rounded-full text-white;
 
+  &--primary {
+    @apply bg-color-2 text-white hover:opacity-70;
   }
-  &:hover {
-    @apply  text-color-1 border-color-2 bg-color-2;
-    &:before {
-      @apply top-0 left-0;
-    }
-    &:after {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.01069 7.99986L7.76769 3.80086V5.10086L4.01069 0.901855H6.24669L9.18469 4.07386V4.82786L6.24669 7.99986H4.01069ZM0.929688 5.29586V3.60586H7.65069V5.29586H0.929688Z' fill='%230F529E'/%3E%3C/svg%3E%0A");
-    }
-  }
-  span {
-
+  &--secondary {
+    @apply bg-color-3 text-white hover:opacity-70;
   }
   &--white {
-    @apply border-color-5 bg-white text-color-1;
-    &:before {
-      content: "";
-      @apply size-full absolute flex top-10 left-10 border border-color-2 bg-white transition-all duration-500 ease-power2-out rounded-full -z-1;
-  
-    }
+    @apply bg-white text-color-1 hover:opacity-70;
   }
   &--noshadow {
     @apply shadow-none;
   }
-  
+
 }
 .link-underline {
   @apply transition-all duration-500 ease-power1-in relative;

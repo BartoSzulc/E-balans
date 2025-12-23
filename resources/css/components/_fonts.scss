@@ -24,69 +24,61 @@
  * 4. Update --font-* variables in abstracts/_variables.scss
  * 5. Rebuild with `npm run build`
  *
- * CURRENT FONTS (From Figma):
- * - Gantari (Primary): Multiple weights (400, 600, 700)
- * - Sansita (Secondary/Testimonials): 1 weight (400 italic)
- *
- * ═══════════════════════════════════════════════════════════════════════════
- */
-
-/* ─────────────────────────────────────────────────────────────────────────
- * GANTARI - Primary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * A modern sans-serif typeface
- * Used for: Body text, headings, UI components, buttons, menus
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required weights from Figma: 400, 600, 700
- */
-
-/* Regular (400) */
+/* nunito-regular - latin_latin-ext */
 @font-face {
-  font-display: swap;
-  font-family: 'Gantari';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/gantari-v4-latin_latin-ext-regular.woff2') format('woff2');
+  src: url('../fonts/nunito-v26-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-
-/* Semi-Bold (600) */
+/* nunito-italic - latin_latin-ext */
 @font-face {
-  font-display: swap;
-  font-family: 'Gantari';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/gantari-v4-latin_latin-ext-600.woff2') format('woff2');
-}
-
-/* Bold (700) */
-@font-face {
-  font-display: swap;
-  font-family: 'Gantari';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/gantari-v4-latin_latin-ext-700.woff2') format('woff2');
-}
-
-/* ─────────────────────────────────────────────────────────────────────────
- * SANSITA - Secondary Font (From Figma)
- * ─────────────────────────────────────────────────────────────────────────
- * An elegant typeface for testimonials and quotes
- * Used for: Testimonials (opinia), quotes, decorative text
- * Source: Google Fonts
- * Supports: Latin, Latin Extended character sets
- *
- * Required: 400 italic
- */
-
-/* Regular Italic (400) */
-@font-face {
-  font-display: swap;
-  font-family: 'Sansita';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/sansita-v12-latin_latin-ext-italic.woff2') format('woff2');
+  src: url('../fonts/nunito-v26-latin_latin-ext-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/nunito-v26-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/nunito-v26-latin_latin-ext-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/nunito-v26-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/nunito-v26-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* nunito-900 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/nunito-v26-latin_latin-ext-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 //  * ─────────────────────────────────────────────────────────────────────────

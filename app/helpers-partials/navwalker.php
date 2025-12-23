@@ -48,22 +48,22 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
         }
     
         $item_output = $args->before;
+
+
         $item_output .= '<a'. $attributes .'>';
         $item_output .= $args->link_before . '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>' . $args->link_after;
 
 
         $item_output .= '</a>';
-    
+
         if ($has_children) {
             // Place the indicator here, but outside the <a> tag
-            $item_output .= ' <span class="indicator"><svg class="size-14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 7C14 3.13409 10.8659 -1.36995e-07 7 -3.0598e-07C3.13409 -4.74964e-07 8.16679e-07 3.13409 6.47695e-07 7C4.7871e-07 10.8659 3.13409 14 7 14C10.8659 14 14 10.8659 14 7ZM1.16668 7C1.16668 3.77841 3.77841 1.16668 7 1.16668C10.2216 1.16668 12.8333 3.77841 12.8333 7C12.8333 10.2216 10.2216 12.8333 7 12.8333C3.77841 12.8333 1.16668 10.2216 1.16668 7Z" fill="#71849A"/>
-<path d="M10.3291 6.24581C10.557 6.01801 10.557 5.64865 10.3291 5.42085C10.1013 5.19305 9.73199 5.19305 9.50419 5.42085L6.99999 7.92505L4.4958 5.42085C4.268 5.19305 3.89864 5.19305 3.67084 5.42085C3.44304 5.64865 3.44304 6.01801 3.67084 6.24581L6.58751 9.16249C6.81531 9.39029 7.18467 9.39029 7.41247 9.16249L10.3291 6.24581Z" fill="#71849A"/>
+            $item_output .= ' <span class="indicator"><svg class="size-12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.86603 10.5C6.48112 11.1667 5.51887 11.1667 5.13397 10.5L1.66987 4.5C1.28497 3.83333 1.7661 3 2.5359 3L9.4641 3C10.2339 3 10.715 3.83333 10.3301 4.5L6.86603 10.5Z" fill="#124797"/>
 </svg>
-
-            </span>'; 
+            </span>';
         }
-        
+
         // Add the indicator div for submenu items
       
     

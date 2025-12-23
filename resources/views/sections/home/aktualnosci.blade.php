@@ -1,48 +1,56 @@
 @php
   $aktualnosci = get_field('aktualnosci');
+
+  // If no posts selected in relationship field, query latest posts
+  $posts_to_display = $aktualnosci['posts'] ?? [];
+  if (empty($posts_to_display)) {
+    $latest_posts = get_posts([
+      'numberposts' => 3,
+      'post_status' => 'publish',
+      'orderby' => 'date',
+      'order' => 'DESC'
+    ]);
+    $posts_to_display = array_map(fn($post) => $post->ID, $latest_posts);
+  }
+
+  // Use ACF title if available, otherwise use default
+  $section_title = $aktualnosci['title'] ?? 'Aktualności';
 @endphp
 
-@if($aktualnosci)
-  <section class="aktualnosci-section">
-    <div class="container mx-auto">
-      @if($aktualnosci['title'])
-        <h2 class="section-title text-h2">
-          {!! $aktualnosci['title'] !!}
-        </h2>
-      @endif
+@if($aktualnosci || $posts_to_display)
+  <section class="aktualnosci-section mt-50 lg:mt-120 overflow-x-clip">
+    <div class="container">
+      <div class="lg:text-center section-title text-h2 mb-30 lg:mb-40 text-color-3" data-aos="fade-up" data-aos-delay="100">
+        {!! $section_title !!}
+      </div>
 
-      @if($aktualnosci['posts'])
-        <div class="posts-grid">
-          @foreach($aktualnosci['posts'] as $post_id)
-            @php
-              $post = get_post($post_id);
-            @endphp
-            <article class="post-card">
-              @if(has_post_thumbnail($post_id))
-                <div class="post-thumbnail">
-                  {!! get_the_post_thumbnail($post_id, 'medium') !!}
-                </div>
-              @endif
-              <h3 class="post-title text-h3">
-                <a href="{{ get_permalink($post_id) }}">{{ get_the_title($post_id) }}</a>
-              </h3>
-              <div class="post-excerpt text-body">
-                {{ get_the_excerpt($post_id) }}
-              </div>
-            </article>
+      @if($posts_to_display)
+        <div class="relative grid grid-cols-1 gap-16 posts-grid lg:grid-cols-3">
+           @include('partials.decorative-circle', [
+              'size' => 'size-143',
+              'bg' => 'bg-color-4',
+              'position' => '-top-49 -right-63',
+              'animation' => 'zoom-in-left',
+              'delay' => 200
+            ])
+             @include('partials.decorative-circle', [
+              'size' => 'size-143',
+              'bg' => 'bg-color-4',
+              'position' => 'bottom-58 -left-58',
+              'animation' => 'zoom-in-right',
+              'delay' => 400
+            ])
+          @foreach($posts_to_display as $post_id)
+            @include('partials.post-card', ['post_id' => $post_id, 'aos_delay' => 200 + ($loop->index * 100)])
           @endforeach
         </div>
       @endif
 
       @if($aktualnosci['button'])
-        <div class="section-button">
-          <a
-            href="{{ $aktualnosci['button']['url'] }}"
-            class="button"
-            @if($aktualnosci['button']['target']) target="{{ $aktualnosci['button']['target'] }}" @endif
-          >
-            {{ $aktualnosci['button']['title'] }}
-          </a>
+        <div class="text-center section-button mt-30 lg:mt-40" data-aos="fade-up" data-aos-delay="600">
+          @php
+          acf_link($aktualnosci['button'], 'btn btn--primary');
+          @endphp
         </div>
       @endif
     </div>

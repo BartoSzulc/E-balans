@@ -8,7 +8,7 @@
         {!! wp_nav_menu([
         'theme_location' => 'primary_navigation', 
         'menu_class' => 'nav flex items-center gap-40', 
-        'add_li_class' => ' transition-all duration-500 ease-in-out text-menu',
+        'add_li_class' => ' transition-all duration-500 ease-in-out text-body',
         'echo' => false,
         'walker' => $custom_nav_walker,
         ])!!}

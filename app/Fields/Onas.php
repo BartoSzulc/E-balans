@@ -5,6 +5,7 @@ namespace App\Fields;
 use Log1x\AcfComposer\Builder;
 use Log1x\AcfComposer\Field;
 use App\Fields\Partials\HowItWorks;
+use App\Fields\Partials\Hero;       
 
 class Onas extends Field
 {
@@ -19,6 +20,7 @@ class Onas extends Field
             ->setLocation('page_template', '==', 'template-onas.blade.php');
 
         $fields
+            ->addPartial(Hero::class)
             ->addFlexibleContent('flexible_content', [
                 'label' => 'Content Sections',
                 'instructions' => 'Add content sections',
@@ -49,7 +51,7 @@ class Onas extends Field
                             'return_format' => 'id',
                             'preview_size' => 'thumbnail',
                         ])
-                        ->addText('title', [
+                        ->addWysiwyg('title', [
                             'label' => 'Title',
                         ])
                         ->addWysiwyg('description', [
@@ -84,6 +86,17 @@ class Onas extends Field
                         'toolbar' => 'full',
                         'media_upload' => 0,
                     ])
+                    ->addRepeater('add_buttons', [
+                    'label' => 'Buttons',
+                    'instructions' => 'Add call to action buttons',
+                    'layout' => 'block',
+                    'button_label' => 'Add Button',
+                ])
+                    ->addLink('button', [
+                        'label' => 'Button',
+                        'return_format' => 'array',
+                    ])
+                ->endRepeater()
 
                 // Video Layout
                 ->addLayout('video', [

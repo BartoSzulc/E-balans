@@ -15,9 +15,21 @@ class Hero extends Partial
         $fields = Builder::make('hero');
 
         $fields
-            ->addRepeater('items')
-                ->addText('item')
-            ->endRepeater();
+            ->addGroup('hero', [
+                'label' => 'Hero Section',
+            ])
+                ->addWysiwyg('title', [
+                    'label' => 'Title',
+                    'instructions' => 'Main heading for hero section',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ])
+                ->addImage('hero_image', [
+                    'label' => 'Hero Image',
+                    'return_format' => 'id',
+                ])
+            ->endGroup();
+               
 
         return $fields;
     }

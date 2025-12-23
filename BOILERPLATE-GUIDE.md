@@ -28,15 +28,15 @@ All colors are defined in `resources/css/abstracts/_variables.scss` using the `@
 @theme {
   /* Primary Colors */
   --color-color-1: #0F529E;      /* Primary Blue */
-  --color-color-2: #5CE6DE;      /* Secondary Cyan */
-  --color-color-3: #0B284A;      /* Dark Navy */
+  --color-color-2: #E52F3D;      /* Secondary Cyan */
+  --color-color-3: #124797;      /* Dark Navy */
   --color-color-4: #CFDCEC;      /* Light Gray Blue */
   --color-color-5: #71849A;      /* Medium Gray */
   --color-orange: #FF8B00;       /* Accent Orange */
   --color-blue: #283250;         /* Dark Blue */
 
   /* Contrast Variants */
-  --color-contrast-color-1: #0B284A;
+  --color-contrast-color-1: #124797;
   --color-contrast-color-2: #0F529E;
 }
 ```

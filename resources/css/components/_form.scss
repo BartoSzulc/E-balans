@@ -1,22 +1,19 @@
 .form {
     
     &__grid {
-        @apply grid grid-cols-12 gap-20;
+        @apply grid grid-cols-12 gap-y-32;
         &-col{
-            @apply col-span-full grid gap-20 items-center;
+            @apply col-span-full grid lg:gap-x-74 gap-y-32 items-center;
             label {
-                @apply text-color-5 ;
-                b {
-                    @apply text-16 font-medium pl-20;
-                }
+            
                 .wpcf7-form-control-wrap {
-                    @apply mt-1;
+                    @apply mt-8 block;
                 }
             }
             input, textarea {
-                @apply  w-full flex  border-1 border-color-2 text-white uppercase rounded-tl-20 rounded-br-20 text-button py-18 px-20 transition-all duration-300 ease-linear;
+                @apply h-40 w-full shadow-special-1 flex border-1 border-color-3 transition-all duration-300 ease-linear rounded-8 pl-16;
                 &::placeholder {
-                    @apply text-white transition-all duration-300 ease-linear;
+                    @apply  transition-all duration-300 ease-linear;
                 }
                 
                 &:hover {
@@ -38,7 +35,7 @@
                 
             }
             textarea {
-                @apply h-180 rounded-tl-20 rounded-br-20;   
+                @apply h-112 rounded-8 pt-8;
 
             }
             &--col-3 {
@@ -84,7 +81,7 @@ input[type="checkbox"] {
     }
 }
 .wpcf7-response-output {
-    @apply text-white text-center py-5 border rounded-6;
+    @apply text-center py-5 border rounded-6;
     border-color:var(--color-color-2) !important;
     
     @media (min-width: 1024px) {
@@ -135,5 +132,8 @@ input[type="checkbox"] {
     @apply opacity-100;
 }
 .text-polityka {
-    @apply text-zgody text-white;
+    @apply text-small;
+}
+code {
+    @apply text-color-2;
 }
